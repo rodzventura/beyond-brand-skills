@@ -1,0 +1,90 @@
+{
+  "$comment": "Valores brutos do sistema Aurora. Campos com valor null NÃO foram definidos ainda — não preencher por inferência. Ver aurora-open-questions.",
+  "meta": {
+    "marca": "Aurora",
+    "org": "Beyond Co.",
+    "versao": "0.1.0",
+    "status": "parcial"
+  },
+
+  "grid": {
+    "colunas": 6,
+    "linhas": 8,
+    "margem_minima_px": 48,
+    "formatos_validos": ["1:1", "4:5", "16:9"]
+  },
+
+  "tipografia": {
+    "geral": {
+      "familia": "Britti Sans",
+      "usos": ["titulo", "subtitulo", "texto_longo"],
+      "proibido": ["tag", "marcador_de_status"]
+    },
+    "mono": {
+      "familia": "JetBrains Mono",
+      "usos": ["legenda", "tag", "infografico", "informacao_numerica"],
+      "proibido": ["texto_corrido", "titulo_principal"]
+    },
+    "escala": null
+  },
+
+  "cor": {
+    "neutros": {
+      "black": "#101011",
+      "darkGray": "#313133",
+      "gray": "#97979D",
+      "lightGray": "#EDEDED",
+      "white": "#FFFFFF"
+    },
+    "accent_laranja": {
+      "hex": "#FA6E30",
+      "area_maxima_pct": 10,
+      "uso_como_fundo_dominante": false
+    },
+    "fundo": {
+      "claro": null,
+      "escuro": null,
+      "gatilho_de_escolha": null
+    }
+  },
+
+  "logotipo": {
+    "wordmark": "aurora.",
+    "caixa": "minuscula",
+    "ponto_final": { "cor": "accent_laranja" },
+    "variantes": ["clara_sobre_fundo_escuro", "escura_sobre_fundo_claro", "monocromatica"],
+    "altura_minima_px": 12,
+    "altura_minima_provisoria": true,
+    "ordem_assinatura_conjunta": ["aurora.", "Beyond | Volund | Extreme Group"]
+  },
+
+  "cards_status": {
+    "maximo_por_coluna": 3,
+    "campos_obrigatorios": [
+      "codigo_identificador",
+      "tipo",
+      "marcador_de_cor_por_status",
+      "corpo_de_texto",
+      "linha_de_proxima_acao"
+    ],
+    "tipos": ["OPORTUNIDADE", "HIPÓTESE", "EVIDÊNCIA"],
+    "cores_por_status": null
+  },
+
+  "case": {
+    "sequencia": ["capa", "paginas_numeradas"],
+    "header": ["numero_da_secao", "titulo"],
+    "footer": ["nome_do_produto", "categoria", "ciclo", "contador_de_dias"]
+  },
+
+  "textura": {
+    "hachura_diagonal": "removida",
+    "oficial": null,
+    "em_desenvolvimento": "gerador_modular_ascii"
+  },
+
+  "fotografia": {
+    "tratamento": null,
+    "criterio_de_uso": null
+  }
+}

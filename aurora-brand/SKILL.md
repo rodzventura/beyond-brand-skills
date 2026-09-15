@@ -7,8 +7,8 @@ description: "Use esta skill sempre que for criar, revisar ou avaliar peças de 
 
 Aurora é a marca do programa de open innovation e venture building da Beyond Co.
 Esta skill contém as regras verificáveis do sistema visual. Para pontos ainda em
-julgamento, consulte `aurora-open-questions.md`. Para valores brutos (hex, medidas),
-consulte `aurora-tokens.json`.
+julgamento, consulte a skill `aurora-open-questions` (`../aurora-open-questions/SKILL.md`).
+Para valores brutos (hex, medidas), consulte `aurora-tokens.json`, nesta mesma pasta.
 
 ## Grid e formatos
 
@@ -33,7 +33,7 @@ consulte `aurora-tokens.json`.
 
 - Wordmark sempre minúsculo: "aurora." com ponto final laranja.
 - Duas variantes: clara sobre fundo escuro, escura sobre fundo claro. Escolha do fundo é
-  julgamento do designer — ver `aurora-open-questions.md`.
+  julgamento do designer — ver `../aurora-open-questions/SKILL.md`.
 - Variação monocromática (preto e branco) é a única alteração de cor permitida no logotipo.
   Nunca alterar a cor do logotipo fora dessas variantes.
 - Altura mínima de uso: 12px (valor provisório, sujeito a revisão).

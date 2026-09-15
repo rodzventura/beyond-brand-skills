@@ -24,10 +24,16 @@ ln -s ~/beyond-brand-skills/aurora-open-questions ~/.claude/skills/aurora-open-q
 
 Editar os arquivos aqui já reflete nas skills ativas — não é preciso copiar nada.
 
-## Pendências conhecidas
+## Tokens
 
-`aurora-brand/SKILL.md` referencia dois arquivos que ainda não existem neste repositório:
+`aurora-brand/aurora-tokens.json` guarda os valores brutos (hex, medidas, limites).
+Campos com valor `null` são pontos que **ainda não foram definidos** — não preencher
+por inferência. Hoje estão pendentes:
 
-- `aurora-tokens.json` — valores brutos da paleta e das medidas
-- `aurora-open-questions.md` — hoje é a skill `aurora-open-questions/SKILL.md`; as
-  referências no texto ainda apontam para o nome antigo de arquivo
+- `tipografia.escala` — escala tipográfica
+- `cor.fundo.claro` / `cor.fundo.escuro` / `cor.fundo.gatilho_de_escolha`
+- `cards_status.cores_por_status`
+- `textura.oficial` — o gerador modular ASCII ainda está em desenvolvimento
+- `fotografia.tratamento` / `fotografia.criterio_de_uso`
+
+O contexto de cada pendência está em [`aurora-open-questions`](aurora-open-questions/SKILL.md).
