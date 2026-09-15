@@ -18,9 +18,13 @@ Este repositório é a fonte da verdade; `~/.claude/skills/` aponta pra cá via 
 
 ```bash
 git clone git@github.com:rodzventura/beyond-brand-skills.git ~/beyond-brand-skills
-ln -s ~/beyond-brand-skills/aurora-brand          ~/.claude/skills/aurora-brand
-ln -s ~/beyond-brand-skills/aurora-open-questions ~/.claude/skills/aurora-open-questions
+ln -s ~/beyond-brand-skills/aurora/aurora-brand          ~/.claude/skills/aurora-brand
+ln -s ~/beyond-brand-skills/aurora/aurora-open-questions ~/.claude/skills/aurora-open-questions
 ```
+
+O symlink tem que apontar para a pasta da skill em si: `~/.claude/skills/` só reconhece
+skills como filhas diretas, então a pasta `aurora/` do repositório não pode ser linkada
+inteira — é um link por skill.
 
 Editar os arquivos aqui já reflete nas skills ativas — não é preciso copiar nada.
 
