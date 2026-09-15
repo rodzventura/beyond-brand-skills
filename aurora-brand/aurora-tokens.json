@@ -42,8 +42,8 @@
       "uso_como_fundo_dominante": false
     },
     "fundo": {
-      "claro": null,
-      "escuro": null,
+      "claro": { "token": "lightGray", "hex": "#EDEDED" },
+      "escuro": { "token": "black", "hex": "#101011" },
       "gatilho_de_escolha": null
     }
   },

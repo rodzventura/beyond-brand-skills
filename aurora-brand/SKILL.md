@@ -26,6 +26,9 @@ Para valores brutos (hex, medidas), consulte `aurora-tokens.json`, nesta mesma p
 ## Cor
 
 - Paleta base (neutros): ver `aurora-tokens.json`.
+- Fundos oficiais: escuro `#101011` (black) e claro `#EDEDED` (lightGray). São os dois
+  únicos fundos dominantes válidos — `#FFFFFF` é cor de elemento, não de fundo de peça.
+  Qual dos dois usar em cada peça continua sendo julgamento do designer.
 - Accent laranja: máximo de 10% da área total da peça. Nunca usar como cor de fundo dominante.
 - Se uma peça ultrapassar 10% de laranja, ela está fora do sistema — reduzir a área ou redistribuir.
 

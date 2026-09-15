@@ -31,7 +31,8 @@ Campos com valor `null` são pontos que **ainda não foram definidos** — não 
 por inferência. Hoje estão pendentes:
 
 - `tipografia.escala` — escala tipográfica
-- `cor.fundo.claro` / `cor.fundo.escuro` / `cor.fundo.gatilho_de_escolha`
+- `cor.fundo.gatilho_de_escolha` — o par claro/escuro já está fixado; falta o critério
+  de quando usar cada um
 - `cards_status.cores_por_status`
 - `textura.oficial` — o gerador modular ASCII ainda está em desenvolvimento
 - `fotografia.tratamento` / `fotografia.criterio_de_uso`

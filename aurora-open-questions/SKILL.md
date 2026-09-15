@@ -12,7 +12,7 @@ de casos reais para enxergar o padrão.
 | Item | Estado |
 |---|---|
 | Fotografia por tema (quente vs. técnico/frio) | Classificação solta — os temas ainda não mapeiam em nenhum campo estruturado do sistema (ex. tipo de card). Revisitar quando o time de comunicação tiver volume de produção real. |
-| Escolha entre variante clara/escura de fundo | Ambas existem, sem gatilho definido. |
+| Escolha entre variante clara/escura de fundo | O par está fixado nos tokens (escuro `#101011`, claro `#EDEDED`), mas o gatilho de quando usar cada um segue indefinido. |
 | Densidade de linha além do limite de 3 cards por coluna | Depende do espaço disponível — sem número fixo. |
 | Sequência de peças na grade de feed | Feito por inspeção visual, sem critério escrito. |
 | Tratamento de imagem (cor, contraste, grão) | Ainda placeholder — não decidido. |
