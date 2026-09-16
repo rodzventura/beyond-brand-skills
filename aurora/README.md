@@ -1,15 +1,29 @@
-# beyond-brand-skills
+# Aurora — skills de marca
 
-Skills de marca da Beyond Co. para uso com Claude Code / Claude Desktop.
+Aurora é a marca do programa de open innovation e venture building da Beyond Co.
+Estas skills traduzem o sistema de marca em regras consultáveis pelo Claude Code.
 
 ## Skills
 
 | Skill | O que é |
 |---|---|
-| [`aurora-brand`](aurora-brand/SKILL.md) | Sistema de marca do Aurora — grid, tipografia, cor, logotipo, cards de status, estrutura de case. Regras verificáveis, operacionais. |
-| [`aurora-open-questions`](aurora-open-questions/SKILL.md) | Pendências de julgamento do Aurora ainda não convertidas em regra. Referência, não skill operacional. |
+| [`aurora-brand`](aurora-brand/SKILL.md) | Sistema visual — grid, tipografia, cor, logotipo, cards de status, estrutura de case. Regras verificáveis, operacionais. |
+| [`aurora-verbal`](aurora-verbal/SKILL.md) | Identidade verbal — tom, léxico, formatos de copy e o teste de qualidade de texto. |
+| [`aurora-open-questions`](aurora-open-questions/SKILL.md) | Pendências de julgamento e divergências com o canônico. Referência, não skill operacional. |
 
-Aurora é a marca do programa de open innovation e venture building da Beyond Co.
+## Hierarquia das fontes
+
+**O documento canônico vence as skills.**
+[`canonico/aurora-identidade-visual.pdf`](canonico/aurora-identidade-visual.pdf) (Beyond,
+30/ago, 46 páginas) é o brand book completo — estratégia, identidade verbal e visual. As
+skills são a destilação operável dele; quando divergirem, o PDF manda.
+
+Há exatamente **uma exceção**, datada e justificada: a hachura diagonal, removida do
+sistema depois que o PDF foi fechado. Toda divergência viva está registrada na tabela final
+de [`aurora-open-questions`](aurora-open-questions/SKILL.md) — nenhuma fica implícita.
+
+`aurora-verbal/identidade-verbal.md` é o detalhamento verbal completo (392 linhas), do qual
+a `aurora-verbal` é a síntese acionável.
 
 ## Instalação
 
@@ -19,6 +33,7 @@ Este repositório é a fonte da verdade; `~/.claude/skills/` aponta pra cá via 
 ```bash
 git clone git@github.com:rodzventura/beyond-brand-skills.git ~/beyond-brand-skills
 ln -s ~/beyond-brand-skills/aurora/aurora-brand          ~/.claude/skills/aurora-brand
+ln -s ~/beyond-brand-skills/aurora/aurora-verbal         ~/.claude/skills/aurora-verbal
 ln -s ~/beyond-brand-skills/aurora/aurora-open-questions ~/.claude/skills/aurora-open-questions
 ```
 
@@ -31,14 +46,14 @@ Editar os arquivos aqui já reflete nas skills ativas — não é preciso copiar
 ## Tokens
 
 `aurora-brand/aurora-tokens.json` guarda os valores brutos (hex, medidas, limites).
-Campos com valor `null` são pontos que **ainda não foram definidos** — não preencher
-por inferência. Hoje estão pendentes:
+Campos com valor `null` **ainda não foram definidos** — não preencher por inferência.
+Campos com `_origem` ou `_nota` marcam regras que não vêm do canônico, ou que o
+contradizem de propósito.
+
+Hoje estão pendentes:
 
 - `tipografia.escala` — escala tipográfica
 - `cor.fundo.gatilho_de_escolha` — o par claro/escuro já está fixado; falta o critério
   de quando usar cada um
-- `cards_status.cores_por_status`
 - `textura.oficial` — o gerador modular ASCII ainda está em desenvolvimento
 - `fotografia.tratamento` / `fotografia.criterio_de_uso`
-
-O contexto de cada pendência está em [`aurora-open-questions`](aurora-open-questions/SKILL.md).
