@@ -1,1 +1,5 @@
 .DS_Store
+
+# Saída de peças geradas em sessões de teste — não é fonte da marca.
+# Se um dia peças reais precisarem ser versionadas, remover esta linha.
+pecas/
