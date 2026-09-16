@@ -1,29 +1,47 @@
 {
-  "$comment": "Valores brutos do sistema Aurora. Campos com valor null NÃO foram definidos ainda — não preencher por inferência. Ver aurora-open-questions.",
+  "$comment": "Valores brutos do sistema Aurora. Campos null NÃO foram definidos — não preencher por inferência. Fonte canônica: ../canonico/aurora-identidade-visual.pdf (Beyond, 30/ago). Onde uma regra não vem do canônico, o campo traz _origem.",
   "meta": {
     "marca": "Aurora",
     "org": "Beyond Co.",
-    "versao": "0.1.0",
-    "status": "parcial"
+    "versao": "0.2.0",
+    "status": "parcial",
+    "canonico": "../canonico/aurora-identidade-visual.pdf"
   },
 
   "grid": {
     "colunas": 6,
     "linhas": 8,
     "margem_minima_px": 48,
-    "formatos_validos": ["1:1", "4:5", "16:9"]
+    "formatos_validos": ["1:1", "4:5", "16:9"],
+    "_nota": "A posição do módulo muda entre formatos; a regra permanece (PDF p. 36)."
   },
 
   "tipografia": {
     "geral": {
       "familia": "Britti Sans",
-      "usos": ["titulo", "subtitulo", "texto_longo"],
-      "proibido": ["tag", "marcador_de_status"]
+      "fonte": "https://www.youworkforthem.com/font/T12190/britti-sans",
+      "usos": ["titulo", "subtitulo", "texto_longo", "formato_grande"],
+      "proibido": ["tag", "marcador_de_status"],
+      "pesos": {
+        "validos": ["Light", "Regular", "Semibold"],
+        "proibidos": ["Bold"],
+        "uso": {
+          "titulo": ["Regular", "Semibold"],
+          "formato_grande": ["Regular", "Semibold"],
+          "paragrafo_extenso": ["Light"]
+        },
+        "_origem": "Decisão do time, mais restritiva que o canônico. O PDF (p. 30) lista Bold como peso disponível da família; o sistema não o usa."
+      }
     },
     "mono": {
       "familia": "JetBrains Mono",
-      "usos": ["legenda", "tag", "infografico", "informacao_numerica"],
-      "proibido": ["texto_corrido", "titulo_principal"]
+      "fonte": "Adobe Fonts / Google Fonts",
+      "usos": ["legenda", "tag", "infografico", "informacao_numerica", "estado", "dado", "label", "codigo", "data", "kpi", "navegacao"],
+      "proibido": ["texto_corrido", "titulo_principal"],
+      "pesos": {
+        "validos": ["Light", "Regular", "Medium", "Semibold", "Bold", "Extrabold"],
+        "_origem": "Gama completa conforme o canônico (PDF p. 31). A restrição de pesos vale só para a Britti Sans."
+      }
     },
     "escala": null
   },
@@ -38,8 +56,11 @@
     },
     "accent_laranja": {
       "hex": "#FA6E30",
+      "papel": "sinal",
+      "pode_indicar": ["acao", "estado", "ponto_de_atencao", "progresso", "decisao", "evidencia"],
+      "uso_como_fundo_dominante": false,
       "area_maxima_pct": 10,
-      "uso_como_fundo_dominante": false
+      "_origem_area_maxima": "Não consta do canônico. O PDF (p. 32) diz apenas que o laranja não entra como território visual dominante, sem fixar percentual."
     },
     "fundo": {
       "claro": { "token": "lightGray", "hex": "#EDEDED" },
@@ -51,8 +72,19 @@
   "logotipo": {
     "wordmark": "aurora.",
     "caixa": "minuscula",
-    "ponto_final": { "cor": "accent_laranja" },
+    "natureza": "tipografica",
+    "sem": ["simbolo_literal", "aurora_boreal", "metafora_tecnologica"],
+    "ponto_final": {
+      "cor": "accent_laranja",
+      "papel": "sinal_de_sistema",
+      "_nota": "Estado, não encerramento. Presença discreta e proprietária (PDF p. 23)."
+    },
     "variantes": ["clara_sobre_fundo_escuro", "escura_sobre_fundo_claro", "monocromatica"],
+    "monograma": {
+      "forma": "a.",
+      "uso": ["icone_de_app", "favicon"],
+      "_origem": "PDF p. 28."
+    },
     "altura_minima_px": 12,
     "altura_minima_provisoria": true,
     "ordem_assinatura_conjunta": ["aurora.", "Beyond | Volund | Extreme Group"]
@@ -68,7 +100,23 @@
       "linha_de_proxima_acao"
     ],
     "tipos": ["OPORTUNIDADE", "HIPÓTESE", "EVIDÊNCIA"],
-    "cores_por_status": null
+    "estados": [
+      "identificada",
+      "em avaliação",
+      "em teste",
+      "com sinal encontrado",
+      "validada",
+      "em pivot",
+      "encerrada",
+      "em handover"
+    ],
+    "cores_por_status": {
+      "forma": "quadrados em sequência",
+      "corrente": { "token": "accent_laranja", "hex": "#FA6E30" },
+      "percorrido": { "token": "black", "hex": "#101011" },
+      "pendente": "vazio",
+      "_origem": "PDF p. 34 e 35."
+    }
   },
 
   "case": {
@@ -80,7 +128,8 @@
   "textura": {
     "hachura_diagonal": "removida",
     "oficial": null,
-    "em_desenvolvimento": "gerador_modular_ascii"
+    "em_desenvolvimento": "gerador_modular_ascii",
+    "_conflito_com_canonico": "O PDF ainda mostra hachura diagonal em uso (p. 39, 42, 43). A remoção foi decidida depois — a skill prevalece neste ponto. Ver aurora-open-questions."
   },
 
   "fotografia": {
