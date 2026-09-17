@@ -63,6 +63,9 @@ Esta skill contém as regras verificáveis do sistema visual.
 - Variação monocromática (preto e branco) é a única alteração de cor permitida no logotipo.
   Nunca alterar a cor do logotipo fora dessas variantes.
 - Monograma **"a."** para ícone de app e favicon (p. 28).
+- **Arquivos** em `assets/`: `Logo_dark.svg` (escuro, para fundo claro), `Logo_light.svg`
+  (claro, para fundo escuro), `Logo_mono_black.svg` e `Logo_mono_white.svg`. Usar esses
+  arquivos — não redesenhar nem recolorir o wordmark.
 - Altura mínima de uso: 12px (valor provisório, sujeito a revisão).
 - Assinatura conjunta: "aurora." sempre aparece antes de Beyond, Volund ou Extreme Group,
   nunca depois.
