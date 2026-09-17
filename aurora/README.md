@@ -11,6 +11,17 @@ Estas skills traduzem o sistema de marca em regras consultáveis pelo Claude Cod
 | [`aurora-verbal`](aurora-verbal/SKILL.md) | Identidade verbal — tom, léxico, formatos de copy e o teste de qualidade de texto. |
 | [`aurora-open-questions`](aurora-open-questions/SKILL.md) | Pendências de julgamento e divergências com o canônico. Referência, não skill operacional. |
 
+## Comando
+
+| Comando | O que faz |
+|---|---|
+| [`/aurora-peca`](commands/aurora-peca.md) | Cria ou revisa uma peça visual, **em Opus 5**, carregando `aurora-brand` e `aurora-verbal` e fechando com um checklist de conformidade. |
+
+O modelo é fixado no frontmatter do comando (`model: opus`) porque **skills não aceitam
+`model`** — o frontmatter de `SKILL.md` só reconhece `name`, `description`, `version`,
+`allowed-tools`, `user-invocable`, `disable-model-invocation` e `argument-hint`. Um
+`model:` dentro de uma skill seria ignorado em silêncio. Slash commands e subagents aceitam.
+
 ## Hierarquia das fontes
 
 **O documento canônico vence as skills.**
@@ -35,6 +46,9 @@ git clone git@github.com:rodzventura/beyond-brand-skills.git ~/beyond-brand-skil
 ln -s ~/beyond-brand-skills/aurora/aurora-brand          ~/.claude/skills/aurora-brand
 ln -s ~/beyond-brand-skills/aurora/aurora-verbal         ~/.claude/skills/aurora-verbal
 ln -s ~/beyond-brand-skills/aurora/aurora-open-questions ~/.claude/skills/aurora-open-questions
+
+mkdir -p ~/.claude/commands
+ln -s ~/beyond-brand-skills/aurora/commands/aurora-peca.md ~/.claude/commands/aurora-peca.md
 ```
 
 O symlink tem que apontar para a pasta da skill em si: `~/.claude/skills/` só reconhece
