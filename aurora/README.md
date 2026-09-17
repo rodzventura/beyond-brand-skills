@@ -17,6 +17,17 @@ Estas skills traduzem o sistema de marca em regras consultáveis pelo Claude Cod
 |---|---|
 | [`/aurora-peca`](commands/aurora-peca.md) | Cria ou revisa uma peça visual, **em Opus 5**, carregando `aurora-brand` e `aurora-verbal` e fechando com um checklist de conformidade. |
 
+## Subagent
+
+| Agent | O que faz |
+|---|---|
+| [`aurora-revisor`](agents/aurora-revisor.md) | Audita uma peça já gerada (PNG) contra os cinco pontos mais sensíveis do sistema — peso de fonte, fundo, estouro de título, wordmark e uso da mono — e fecha com veredito. Só lê, não corrige. |
+
+Agents aceitam `name`, `description`, `model`, `tools`, `color` e `effort` — **não aceitam
+`skills:`**. Como o `aurora-revisor` roda com `tools: Read`, ele também não pode chamar a
+ferramenta Skill; o corpo do agent lista os caminhos dos arquivos de regra para ele ler
+direto. Se o repositório mudar de lugar, esses caminhos precisam ser atualizados.
+
 O modelo é fixado no frontmatter do comando (`model: opus`) porque **skills não aceitam
 `model`** — o frontmatter de `SKILL.md` só reconhece `name`, `description`, `version`,
 `allowed-tools`, `user-invocable`, `disable-model-invocation` e `argument-hint`. Um
