@@ -17,18 +17,21 @@ A fonte canônica é `~/beyond-brand-skills/aurora/canonico/aurora-identidade-vi
 Consulte-a quando a skill não cobrir o caso. A única exceção à precedência do canônico é
 a hachura, registrada em `aurora-open-questions`.
 
-Se o formato não vier nos argumentos, pergunte antes de começar: 1:1, 4:5 ou 16:9 são os
-únicos válidos.
+Se o formato não vier nos argumentos, pergunte antes de começar: 1:1, 4:5, 3:4, 16:9 ou
+9:16 são os únicos válidos.
 
 ## Ao entregar
 
 Verifique explicitamente, item a item, e relate o resultado:
 
-- [ ] Formato é 1:1, 4:5 ou 16:9; margem mínima de 48px respeitada
+- [ ] Formato é 1:1, 4:5, 3:4, 16:9 ou 9:16; margem mínima de 48px respeitada
 - [ ] Grid de 6 × 8 aplicado
-- [ ] Britti Sans só em Regular, Semibold ou Light — **nunca Bold**; Light apenas em
+- [ ] Britti Sans só em Regular, Medium ou Light — **nunca Semibold nem Bold**; Light apenas em
       parágrafo extenso
-- [ ] JetBrains Mono só em legenda, tag, estado, dado, label, código, data, KPI ou navegação
+- [ ] JetBrains Mono só em legenda, tag, estado, dado, label, código, data ou navegação —
+      KPI em destaque vai em Britti Sans Medium (estilos KPI/*)
+- [ ] Título curto em Medium, título longo (mais de 2 linhas) em Regular
+- [ ] Texto sobre laranja em branco e peso Medium; texto secundário/terciário com contraste AA
 - [ ] Fundo é `#EDEDED` ou `#101011` — nunca `#FFFFFF` como fundo de peça
 - [ ] Laranja `#FA6E30` é sinal, não território: até 10% da área, nunca fundo dominante
 - [ ] Wordmark "aurora." minúsculo, ponto final laranja, antes de Beyond/Volund/Extreme

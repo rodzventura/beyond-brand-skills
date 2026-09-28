@@ -25,7 +25,8 @@ Depois leia o PNG da peça.
 
 Verifique, nesta ordem, e reporte cada item como OK ou FALHA com a razão:
 
-1. **Peso de fonte** — algum texto em Britti Sans está em Bold?
+1. **Peso de fonte** — algum texto em Britti Sans está em Semibold ou Bold? Os pesos válidos
+   são Light, Regular e Medium.
 2. **Fundo** — o fundo dominante é `#101011` ou `#EDEDED`? O laranja ultrapassa ~10% da
    área ou aparece como campo em vez de sinal?
 3. **Título** — o texto principal quebra ou estoura a área reservada a ele?

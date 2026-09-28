@@ -3,49 +3,352 @@
   "meta": {
     "marca": "Aurora",
     "org": "Beyond Co.",
-    "versao": "0.2.0",
+    "versao": "0.4.0",
     "status": "parcial",
-    "canonico": "../canonico/aurora-identidade-visual.pdf"
+    "canonico": "../canonico/aurora-identidade-visual.pdf",
+    "figma": {
+      "arquivo": "Aurora | Identidade da Marca",
+      "file_key": "9Iwasou21KNUTX2HfevHhY",
+      "pagina": "Style Guide (621:12)",
+      "_nota": "Variáveis (Primitives, Color Light/Dark, Spacing, Typography Desktop/Mobile), estilos de texto e de grid espelham este arquivo. Mudou aqui, muda lá — e vice-versa."
+    }
   },
-
   "grid": {
     "colunas": 6,
     "linhas": 8,
     "margem_minima_px": 48,
-    "formatos_validos": ["1:1", "4:5", "16:9"],
-    "_nota": "A posição do módulo muda entre formatos; a regra permanece (PDF p. 36)."
+    "formatos_validos": [
+      "1:1",
+      "4:5",
+      "3:4",
+      "16:9",
+      "9:16"
+    ],
+    "_nota": "A posição do módulo muda entre formatos; a regra permanece (PDF p. 36). O 9:16 (story) não consta do canônico — foi omissão, incluído em 17/set. O 3:4 (1080×1440, carrossel de feed) também não consta — incluído por decisão do time em 24/set.",
+    "web": {
+      "breakpoints": {
+        "mobile": {
+          "design_px": 375,
+          "faixa": "até 767",
+          "colunas": 4,
+          "gutter": 16,
+          "margem": 20
+        },
+        "tablet": {
+          "design_px": 768,
+          "faixa": "768–1279",
+          "colunas": 8,
+          "gutter": 24,
+          "margem": 40
+        },
+        "desktop": {
+          "design_px": 1440,
+          "faixa": "1280+",
+          "colunas": 12,
+          "gutter": 24,
+          "margem": 80,
+          "conteudo_max": 1280
+        }
+      },
+      "modular_na_web": "Em momentos específicos (abertura, dados, manifesto) o modular Aurora entra como 6 colunas com a mesma margem (80) e gutter (24) do desktop: 1 coluna Aurora = 2 colunas web + 1 gutter.",
+      "_nao_adotado": "Variante modular de borda a borda (células de 240px, margem 0) — avaliada no teste da LP e não adotada por ora (28/set)."
+    }
   },
-
   "tipografia": {
     "geral": {
       "familia": "Britti Sans",
       "fonte": "https://www.youworkforthem.com/font/T12190/britti-sans",
-      "usos": ["titulo", "subtitulo", "texto_longo", "formato_grande"],
-      "proibido": ["tag", "marcador_de_status"],
+      "usos": [
+        "titulo",
+        "subtitulo",
+        "texto_longo",
+        "formato_grande",
+        "kpi"
+      ],
+      "proibido": [
+        "tag",
+        "marcador_de_status"
+      ],
       "pesos": {
-        "validos": ["Light", "Regular", "Semibold"],
-        "proibidos": ["Bold"],
+        "validos": [
+          "Light",
+          "Regular",
+          "Medium"
+        ],
+        "proibidos": [
+          "Semibold",
+          "Bold"
+        ],
         "uso": {
-          "titulo": ["Regular", "Semibold"],
-          "formato_grande": ["Regular", "Semibold"],
-          "paragrafo_extenso": ["Light"]
+          "titulo": [
+            "Medium"
+          ],
+          "titulo_longo": [
+            "Regular"
+          ],
+          "formato_grande": [
+            "Regular",
+            "Medium"
+          ],
+          "kpi": [
+            "Medium"
+          ],
+          "paragrafo_extenso": [
+            "Light"
+          ]
         },
-        "_origem": "Decisão do time, mais restritiva que o canônico. O PDF (p. 30) lista Bold como peso disponível da família; o sistema não o usa."
+        "_origem": "Decisão do time. O PDF (p. 30) lista Light, Regular, Semibold e Bold; o sistema não usa Semibold nem Bold e usa Medium, que o PDF não lista (troca de Semibold por Medium em 24/set).",
+        "_titulo_longo": "Título longo = mais de 2 linhas ou ~8+ palavras: mesmo tamanho, em Regular. Título curto segue em Medium (decisão 28/set)."
       }
     },
     "mono": {
       "familia": "JetBrains Mono",
       "fonte": "Adobe Fonts / Google Fonts",
-      "usos": ["legenda", "tag", "infografico", "informacao_numerica", "estado", "dado", "label", "codigo", "data", "kpi", "navegacao"],
-      "proibido": ["texto_corrido", "titulo_principal"],
+      "usos": [
+        "legenda",
+        "tag",
+        "infografico",
+        "informacao_numerica",
+        "estado",
+        "dado",
+        "label",
+        "codigo",
+        "data",
+        "navegacao"
+      ],
+      "proibido": [
+        "texto_corrido",
+        "titulo_principal"
+      ],
       "pesos": {
-        "validos": ["Light", "Regular", "Medium", "Semibold", "Bold", "Extrabold"],
+        "validos": [
+          "Light",
+          "Regular",
+          "Medium",
+          "Semibold",
+          "Bold",
+          "Extrabold"
+        ],
         "_origem": "Gama completa conforme o canônico (PDF p. 31). A restrição de pesos vale só para a Britti Sans."
-      }
+      },
+      "_kpi": "KPI em destaque saiu da mono: usa Britti Sans Medium (decisão 28/set). Números em tabela/dado continuam em mono (Mono/Data)."
     },
-    "escala": null
+    "escala": {
+      "_escopo": "Web e interface. Peças de formato fixo (social, slides, impresso) usam escala própria, ainda a definir.",
+      "base_px": 16,
+      "grade_px": 4,
+      "estilos": {
+        "Display/XL": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 96,
+          "mobile_px": 56,
+          "entrelinha_pct": 100,
+          "tracking_pct": -3,
+          "uso": "abertura; um por tela"
+        },
+        "Display/LG": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 80,
+          "mobile_px": 48,
+          "entrelinha_pct": 100,
+          "tracking_pct": -3
+        },
+        "Display/MD": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 64,
+          "mobile_px": 40,
+          "entrelinha_pct": 102,
+          "tracking_pct": -2.5
+        },
+        "Heading/H1": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 56,
+          "mobile_px": 40,
+          "entrelinha_pct": 105,
+          "tracking_pct": -2.5,
+          "uso": "título de página/seção"
+        },
+        "Heading/H1 Long": {
+          "familia": "Britti Sans",
+          "peso": "Regular",
+          "desktop_px": 56,
+          "mobile_px": 40,
+          "entrelinha_pct": 105,
+          "tracking_pct": -2.5,
+          "uso": "título longo"
+        },
+        "Heading/H2": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 48,
+          "mobile_px": 36,
+          "entrelinha_pct": 108,
+          "tracking_pct": -2
+        },
+        "Heading/H2 Long": {
+          "familia": "Britti Sans",
+          "peso": "Regular",
+          "desktop_px": 48,
+          "mobile_px": 36,
+          "entrelinha_pct": 108,
+          "tracking_pct": -2,
+          "uso": "título longo"
+        },
+        "Heading/H3": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 40,
+          "mobile_px": 32,
+          "entrelinha_pct": 110,
+          "tracking_pct": -1.5
+        },
+        "Heading/H4": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 32,
+          "mobile_px": 28,
+          "entrelinha_pct": 115,
+          "tracking_pct": -1
+        },
+        "Heading/H5": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 24,
+          "mobile_px": 22,
+          "entrelinha_pct": 120,
+          "tracking_pct": -0.5
+        },
+        "Heading/H6": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 20,
+          "mobile_px": 18,
+          "entrelinha_pct": 125,
+          "tracking_pct": 0
+        },
+        "KPI/XL": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 64,
+          "mobile_px": 40,
+          "entrelinha_pct": 100,
+          "tracking_pct": -3,
+          "uso": "faixa de indicadores"
+        },
+        "KPI/LG": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 40,
+          "mobile_px": 32,
+          "entrelinha_pct": 100,
+          "tracking_pct": -2,
+          "uso": "número em célula/card"
+        },
+        "KPI/MD": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 28,
+          "mobile_px": 24,
+          "entrelinha_pct": 100,
+          "tracking_pct": -1.5,
+          "uso": "número em lista/coluna"
+        },
+        "Body/LG": {
+          "familia": "Britti Sans",
+          "peso": "Regular",
+          "desktop_px": 20,
+          "mobile_px": 18,
+          "entrelinha_pct": 150,
+          "tracking_pct": 0,
+          "uso": "lead"
+        },
+        "Body/MD": {
+          "familia": "Britti Sans",
+          "peso": "Regular",
+          "desktop_px": 16,
+          "mobile_px": 16,
+          "entrelinha_pct": 150,
+          "tracking_pct": 0,
+          "uso": "texto base"
+        },
+        "Body/SM": {
+          "familia": "Britti Sans",
+          "peso": "Regular",
+          "desktop_px": 14,
+          "mobile_px": 14,
+          "entrelinha_pct": 150,
+          "tracking_pct": 0
+        },
+        "Body/Long": {
+          "familia": "Britti Sans",
+          "peso": "Light",
+          "desktop_px": 18,
+          "mobile_px": 17,
+          "entrelinha_pct": 160,
+          "tracking_pct": 0,
+          "uso": "parágrafo extenso"
+        },
+        "Caption": {
+          "familia": "Britti Sans",
+          "peso": "Regular",
+          "desktop_px": 12,
+          "mobile_px": 12,
+          "entrelinha_pct": 140,
+          "tracking_pct": 0
+        },
+        "Label/LG": {
+          "familia": "JetBrains Mono",
+          "peso": "Medium",
+          "desktop_px": 16,
+          "mobile_px": 14,
+          "entrelinha_pct": 120,
+          "tracking_pct": 4,
+          "caixa": "UPPER",
+          "uso": "tag, navegação, estado"
+        },
+        "Label/MD": {
+          "familia": "JetBrains Mono",
+          "peso": "Medium",
+          "desktop_px": 14,
+          "mobile_px": 12,
+          "entrelinha_pct": 120,
+          "tracking_pct": 4,
+          "caixa": "UPPER"
+        },
+        "Label/SM": {
+          "familia": "JetBrains Mono",
+          "peso": "Medium",
+          "desktop_px": 12,
+          "mobile_px": 11,
+          "entrelinha_pct": 120,
+          "tracking_pct": 4,
+          "caixa": "UPPER"
+        },
+        "Mono/Data": {
+          "familia": "JetBrains Mono",
+          "peso": "Regular",
+          "desktop_px": 16,
+          "mobile_px": 14,
+          "entrelinha_pct": 140,
+          "tracking_pct": 0,
+          "uso": "números em tabela, códigos, datas"
+        },
+        "Button/MD": {
+          "familia": "Britti Sans",
+          "peso": "Medium",
+          "desktop_px": 16,
+          "mobile_px": 16,
+          "entrelinha_pct": 120,
+          "tracking_pct": 0,
+          "uso": "rótulo de botão"
+        }
+      }
+    }
   },
-
   "cor": {
     "neutros": {
       "black": "#101011",
@@ -57,39 +360,212 @@
     "accent_laranja": {
       "hex": "#FA6E30",
       "papel": "sinal",
-      "pode_indicar": ["acao", "estado", "ponto_de_atencao", "progresso", "decisao", "evidencia"],
+      "pode_indicar": [
+        "acao",
+        "estado",
+        "ponto_de_atencao",
+        "progresso",
+        "decisao",
+        "evidencia"
+      ],
       "uso_como_fundo_dominante": false,
       "area_maxima_pct": 10,
       "_origem_area_maxima": "Não consta do canônico. O PDF (p. 32) diz apenas que o laranja não entra como território visual dominante, sem fixar percentual."
     },
     "fundo": {
-      "claro": { "token": "lightGray", "hex": "#EDEDED" },
-      "escuro": { "token": "black", "hex": "#101011" },
+      "claro": {
+        "token": "lightGray",
+        "hex": "#EDEDED"
+      },
+      "escuro": {
+        "token": "black",
+        "hex": "#101011"
+      },
       "gatilho_de_escolha": null
-    }
+    },
+    "primitivas": {
+      "neutral": {
+        "0": "#FFFFFF",
+        "50": "#F6F6F6",
+        "100": "#EDEDED",
+        "200": "#D7D7D8",
+        "300": "#C1C1C4",
+        "400": "#ACACB0",
+        "500": "#97979D",
+        "550": "#7D7D81",
+        "600": "#69696D",
+        "700": "#515154",
+        "800": "#313133",
+        "900": "#202021",
+        "950": "#101011"
+      },
+      "orange": {
+        "50": "#FFF4EF",
+        "100": "#FFE9E0",
+        "200": "#FFD3C1",
+        "300": "#FFBA9E",
+        "400": "#FF9A72",
+        "500": "#FA6E30",
+        "600": "#D05E2E",
+        "700": "#A74F2B",
+        "800": "#804027",
+        "900": "#603322",
+        "950": "#45281D"
+      },
+      "_ancoras_oficiais": {
+        "neutral/0": "white",
+        "neutral/100": "lightGray",
+        "neutral/500": "gray",
+        "neutral/800": "darkGray",
+        "neutral/950": "black",
+        "orange/500": "accent"
+      },
+      "_origem": "Tons intermediários interpolados em OKLab entre as âncoras oficiais (26/set). 550 e 600 calibrados para texto terciário AA em cada fundo (28/set). Não constam do canônico."
+    },
+    "por_funcao": {
+      "bg/canvas": {
+        "claro": "neutral/100",
+        "escuro": "neutral/950",
+        "uso": "fundo dominante"
+      },
+      "bg/surface": {
+        "claro": "neutral/0",
+        "escuro": "neutral/900",
+        "uso": "superfície elevada (card, campo)"
+      },
+      "bg/inverse": {
+        "claro": "neutral/950",
+        "escuro": "neutral/100",
+        "uso": "bloco em tema oposto"
+      },
+      "text/primary": {
+        "claro": "neutral/950",
+        "escuro": "neutral/0",
+        "uso": "texto principal"
+      },
+      "text/secondary": {
+        "claro": "neutral/700",
+        "escuro": "neutral/500",
+        "uso": "texto de apoio — AA nos dois"
+      },
+      "text/tertiary": {
+        "claro": "neutral/600",
+        "escuro": "neutral/550",
+        "uso": "menor ênfase — AA nos dois, pode em rótulo pequeno"
+      },
+      "text/inverse": {
+        "claro": "neutral/0",
+        "escuro": "neutral/950",
+        "uso": "texto sobre bg/inverse"
+      },
+      "text/accent": {
+        "claro": "orange/500",
+        "escuro": "orange/500",
+        "uso": "rótulo, tag, link curto em laranja — concessão no claro"
+      },
+      "text/on-accent": {
+        "claro": "neutral/0",
+        "escuro": "neutral/0",
+        "uso": "texto sobre preenchimento laranja — branco, sempre em peso Medium"
+      },
+      "border/subtle": {
+        "claro": "neutral/200",
+        "escuro": "neutral/800",
+        "uso": "divisor decorativo"
+      },
+      "border/default": {
+        "claro": "neutral/500",
+        "escuro": "neutral/700",
+        "uso": "linha de grade, contorno de campo"
+      },
+      "border/strong": {
+        "claro": "neutral/950",
+        "escuro": "neutral/100",
+        "uso": "contorno de destaque"
+      },
+      "accent/signal": {
+        "claro": "orange/500",
+        "escuro": "orange/500",
+        "uso": "laranja como sinal"
+      },
+      "accent/signal-subtle": {
+        "claro": "orange/100",
+        "escuro": "orange/950",
+        "uso": "fundo discreto de estado"
+      },
+      "state/current": {
+        "claro": "orange/500",
+        "escuro": "orange/500",
+        "uso": "marcador: atual"
+      },
+      "state/done": {
+        "claro": "neutral/950",
+        "escuro": "neutral/500",
+        "uso": "marcador: percorrido"
+      },
+      "state/pending": {
+        "claro": "neutral/500",
+        "escuro": "neutral/700",
+        "uso": "marcador: pendente (contorno)"
+      },
+      "focus": {
+        "claro": "orange/500",
+        "escuro": "orange/400",
+        "uso": "anel de foco"
+      }
+    },
+    "contraste": {
+      "alvo": "WCAG AA — 4.5:1 texto, 3:1 texto grande e elementos de interface",
+      "texto_sobre_laranja": {
+        "cor": "neutral/0 (branco)",
+        "peso": "Medium (Button/MD ou Label mono)",
+        "razao": 2.9,
+        "decisao": "28/set — concessão: branco sobre laranja, abaixo do AA; o peso Medium compensa parte da leitura.",
+        "reavaliar": true
+      },
+      "concessao_laranja_texto_claro": {
+        "razao": 2.44,
+        "decisao": "28/set — laranja oficial como texto também no fundo claro, abaixo do AA. Só rótulos, tags e links curtos; nunca texto corrido.",
+        "reavaliar": true
+      },
+      "cinza_oficial_como_texto": "#97979D passa só no escuro (6.6:1). No claro, texto de apoio = neutral/700."
+    },
+    "cores_por_status_web": "Marcador no fundo escuro: percorrido = neutral/500 (preto some no escuro)."
   },
-
   "logotipo": {
     "wordmark": "aurora.",
     "caixa": "minuscula",
     "natureza": "tipografica",
-    "sem": ["simbolo_literal", "aurora_boreal", "metafora_tecnologica"],
+    "sem": [
+      "simbolo_literal",
+      "aurora_boreal",
+      "metafora_tecnologica"
+    ],
     "ponto_final": {
       "cor": "accent_laranja",
       "papel": "sinal_de_sistema",
       "_nota": "Estado, não encerramento. Presença discreta e proprietária (PDF p. 23)."
     },
-    "variantes": ["clara_sobre_fundo_escuro", "escura_sobre_fundo_claro", "monocromatica"],
+    "variantes": [
+      "clara_sobre_fundo_escuro",
+      "escura_sobre_fundo_claro",
+      "monocromatica"
+    ],
     "monograma": {
       "forma": "a.",
-      "uso": ["icone_de_app", "favicon"],
+      "uso": [
+        "icone_de_app",
+        "favicon"
+      ],
       "_origem": "PDF p. 28."
     },
     "altura_minima_px": 12,
     "altura_minima_provisoria": true,
-    "ordem_assinatura_conjunta": ["aurora.", "Beyond | Volund | Extreme Group"]
+    "ordem_assinatura_conjunta": [
+      "aurora.",
+      "Beyond | Volund | Extreme Group"
+    ]
   },
-
   "cards_status": {
     "maximo_por_coluna": 3,
     "campos_obrigatorios": [
@@ -99,7 +575,11 @@
       "corpo_de_texto",
       "linha_de_proxima_acao"
     ],
-    "tipos": ["OPORTUNIDADE", "HIPÓTESE", "EVIDÊNCIA"],
+    "tipos": [
+      "OPORTUNIDADE",
+      "HIPÓTESE",
+      "EVIDÊNCIA"
+    ],
     "estados": [
       "identificada",
       "em avaliação",
@@ -112,28 +592,65 @@
     ],
     "cores_por_status": {
       "forma": "quadrados em sequência",
-      "corrente": { "token": "accent_laranja", "hex": "#FA6E30" },
-      "percorrido": { "token": "black", "hex": "#101011" },
+      "corrente": {
+        "token": "accent_laranja",
+        "hex": "#FA6E30"
+      },
+      "percorrido": {
+        "token": "black",
+        "hex": "#101011"
+      },
       "pendente": "vazio",
       "_origem": "PDF p. 34 e 35."
     }
   },
-
   "case": {
-    "sequencia": ["capa", "paginas_numeradas"],
-    "header": ["numero_da_secao", "titulo"],
-    "footer": ["nome_do_produto", "categoria", "ciclo", "contador_de_dias"]
+    "sequencia": [
+      "capa",
+      "paginas_numeradas"
+    ],
+    "header": [
+      "numero_da_secao",
+      "titulo"
+    ],
+    "footer": [
+      "nome_do_produto",
+      "categoria",
+      "ciclo",
+      "contador_de_dias"
+    ]
   },
-
   "textura": {
     "hachura_diagonal": "removida",
     "oficial": null,
     "em_desenvolvimento": "gerador_modular_ascii",
     "_conflito_com_canonico": "O PDF ainda mostra hachura diagonal em uso (p. 39, 42, 43). A remoção foi decidida depois — a skill prevalece neste ponto. Ver aurora-open-questions."
   },
-
   "fotografia": {
     "tratamento": null,
     "criterio_de_uso": null
+  },
+  "espacamento": {
+    "base_px": 4,
+    "escala": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      40,
+      48,
+      64,
+      80,
+      96,
+      128,
+      160
+    ],
+    "raio": {
+      "none": 0,
+      "_nota": "Aurora é ortogonal: cantos retos."
+    }
   }
 }

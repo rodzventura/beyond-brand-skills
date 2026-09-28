@@ -13,31 +13,71 @@ Esta skill contém as regras verificáveis do sistema visual.
   exceção registrada em Textura.
 - **Valores brutos** (hex, medidas, limites): `aurora-tokens.json`, nesta mesma pasta.
 - **Pontos ainda em julgamento:** `../aurora-open-questions/SKILL.md`.
+- **Design system no Figma:** arquivo *Aurora | Identidade da Marca*, página Style Guide —
+  variáveis, estilos de texto e de grid espelham `aurora-tokens.json`.
 - **Texto e copy:** não é escopo desta skill — ver `../aurora-verbal/SKILL.md`.
 
 ## Grid e formatos
 
-- Grid modular de 6 colunas × 8 linhas, aplicado igualmente nos três formatos oficiais.
-- Formatos válidos: 1:1, 4:5, 16:9. Não usar formatos fora desses três sem aprovação.
+- Grid modular de 6 colunas × 8 linhas, aplicado igualmente nos formatos oficiais.
+- Formatos válidos: 1:1, 4:5, 3:4, 16:9 e 9:16. Não usar formatos fora desses cinco sem aprovação.
+- **3:4 (1080×1440)** é o formato de carrossel de feed do Instagram. Não consta do canônico —
+  incluído por decisão do time em 24/set, para casar com os frames de social já em produção.
+  No 3:4 o módulo do grid 6 × 8 é quadrado (180 × 180).
 - Margem mínima: 48px em qualquer formato.
 - A posição do módulo muda entre formatos; a regra permanece (p. 36).
+
+### Web
+
+- Na web vale o grid de mercado: **12 colunas** no desktop (gutter 24, margem 80, conteúdo
+  até 1280), **8** no tablet (gutter 24, margem 40) e **4** no mobile (gutter 16, margem 20).
+- O modular 6 × 8 entra só em momentos específicos (abertura, dados, manifesto), como 6
+  colunas com a mesma margem e gutter do desktop — 1 coluna Aurora = 2 colunas web.
+- A variante modular de borda a borda (células sem margem) não está adotada.
+
+## Espaçamento
+
+- Base 4px: 0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128, 160.
+- Cantos retos (raio 0) — a Aurora é ortogonal.
 
 ## Tipografia
 
 - **Britti Sans** — uso geral: títulos, subtítulos, textos longos, formatos grandes.
 - **JetBrains Mono** — camada técnica e operacional: legendas, tags, infográficos,
-  informação numérica, estados, dados, labels, códigos, datas, KPIs e navegação (p. 29).
+  informação numérica em tabela, estados, dados, labels, códigos, datas e navegação (p. 29).
+- **KPI em destaque** (o número grande de uma faixa de indicadores, card ou coluna) usa
+  **Britti Sans Medium** — estilos KPI/XL, KPI/LG e KPI/MD. Decisão do time (28/set); o
+  canônico põe KPIs na mono. O rótulo do número segue em mono (Label/SM).
 - Nunca usar JetBrains Mono para texto corrido ou título principal.
 - Nunca usar Britti Sans para tag ou marcador de status.
 
 ### Pesos
 
-- A Britti Sans usa três pesos: **Regular** e **Semibold** em títulos e formatos grandes,
+- A Britti Sans usa três pesos: **Medium** em títulos, **Regular** em títulos longos e texto,
   **Light** em parágrafos extensos.
-- **Bold não entra no sistema** — mesmo estando disponível na família. Essa restrição é
-  decisão do time, mais estrita que o canônico, que lista Bold como peso da fonte (p. 30).
+- **Título longo** — mais de 2 linhas ou ~8 palavras ou mais — usa o mesmo tamanho do
+  nível em Regular (estilos Heading/H1 Long, Heading/H2 Long). Título curto segue em Medium.
+- **Semibold e Bold não entram no sistema** — mesmo estando disponíveis na família. O
+  canônico lista Light, Regular, Semibold e Bold (p. 30) e não traz Medium: a troca de
+  Semibold por Medium é decisão do time (24/set), registrada em `aurora-open-questions`.
 - A JetBrains Mono mantém a gama completa do canônico: Light, Regular, Medium, Semibold,
   Bold e Extrabold (p. 31). A restrição acima vale só para a Britti Sans.
+
+### Escala
+
+Base 16px, passos de 4px, tamanhos próprios para desktop e mobile. Valores completos em
+`aurora-tokens.json` → `tipografia.escala`. Resumo (desktop · mobile):
+
+| Grupo | Estilos |
+|---|---|
+| Display | XL 96·56 · LG 80·48 · MD 64·40 |
+| Heading | H1 56·40 · H2 48·36 · H3 40·32 · H4 32·28 · H5 24·22 · H6 20·18 |
+| KPI | XL 64·40 · LG 40·32 · MD 28·24 |
+| Body | LG 20·18 · MD 16 · SM 14 · Long (Light) 18·17 · Caption 12 · Button/MD 16 (Medium) |
+| Mono | Label LG 16·14 · MD 14·12 · SM 12·11 (caixa alta, +4%) · Data 16·14 |
+
+Um Display por tela ou peça. A escala vale para web e interface; **peças de formato fixo**
+(social, slides, impresso) ainda não têm escala própria — sinalizar como pendência.
 
 ## Cor
 
@@ -50,6 +90,26 @@ Esta skill contém as regras verificáveis do sistema visual.
   decisão ou evidência (p. 32).
 - Máximo de 10% da área total da peça. Se uma peça ultrapassar, ela está fora do sistema —
   reduzir a área ou redistribuir. (O percentual não consta do canônico; é regra local.)
+
+### Cores por função
+
+Nas peças e na interface, usar os tokens por função (`cor.por_funcao` no JSON), nunca a
+primitiva direto. Cada um tem valor para o modo claro e o escuro: fundo (`bg/canvas`,
+`bg/surface`, `bg/inverse`), texto (`primary`, `secondary`, `tertiary`, `accent`,
+`on-accent`), borda, sinal, estados do marcador e foco. As escalas completas de neutros e
+laranja estão em `cor.primitivas` — as cores oficiais são âncoras fixas dentro delas.
+
+### Contraste
+
+- Alvo: WCAG AA. `text/primary`, `text/secondary` e `text/tertiary` passam nos dois modos.
+- **Texto sobre laranja é branco, sempre em peso Medium** (estilo Button/MD ou Label mono).
+  Concessão (28/set): 2.9:1, abaixo do AA — o peso compensa parte da leitura. Preto daria 6.6:1.
+- O cinza oficial `#97979D` só funciona como texto no escuro. No claro, texto de apoio usa
+  `text/secondary` (neutral/700).
+- **Concessão (28/set):** o laranja oficial é usado como texto também no claro, onde dá
+  2.4:1. Só em rótulos, tags e links curtos — nunca texto corrido. Registrado em
+  `aurora-open-questions` para reavaliação.
+- No escuro, o marcador "percorrido" usa cinza (neutral/500) — preto some no fundo escuro.
 
 ## Logotipo
 
