@@ -34,6 +34,10 @@ Esta skill contém as regras verificáveis do sistema visual.
 - O modular 6 × 8 entra só em momentos específicos (abertura, dados, manifesto), como 6
   colunas com a mesma margem e gutter do desktop — 1 coluna Aurora = 2 colunas web.
 - A variante modular de borda a borda (células sem margem) não está adotada.
+- **Trilhos e réguas:** linhas de 1px — verticais no meio da margem, horizontais entre elas,
+  com marcador quadrado de 5px no cruzamento. Seções alternam modo claro e escuro.
+- Regras completas de página, tela de tarefa, formulário, movimento e kit de componentes:
+  `../aurora-web/SKILL.md`.
 
 ## Espaçamento
 
@@ -110,6 +114,9 @@ laranja estão em `cor.primitivas` — as cores oficiais são âncoras fixas den
   2.4:1. Só em rótulos, tags e links curtos — nunca texto corrido. Registrado em
   `aurora-open-questions` para reavaliação.
 - No escuro, o marcador "percorrido" usa cinza (neutral/500) — preto some no fundo escuro.
+- **`text/tertiary` não serve sobre `bg/surface` no escuro** (3.97:1, reprova no AA). Em
+  painel e card escuro, texto de apoio usa `text/secondary`. Sobre `bg/canvas` o terciário
+  continua valendo (30/set, telas do app).
 
 ## Logotipo
 
@@ -145,10 +152,24 @@ Limite: máximo de 3 cards por coluna em qualquer composição.
 sinal encontrado, validada, em pivot, encerrada, em handover.
 
 **Marcador:** sequência de quadrados — laranja marca a posição corrente, preto o
-percorrido, vazio o pendente (p. 35).
+percorrido, vazio o pendente (p. 35). Na web, o quadrado corrente **pisca** (liga e desliga,
+sem fade, 1.1s), em todo marcador (decisão de 29/set); com movimento reduzido, fica parado.
+Marcador é sempre quadrado — também no status "aberta" de uma chamada, onde o protótipo do
+app usava círculo.
 
 Os módulos organizam informação; os estados mostram que alguma coisa está acontecendo. A
 marca passa a mostrar visualmente aquilo que a Aurora faz operacionalmente.
+
+## Ícones
+
+- Família: **Material Symbols · Sharp, peso 300, em linha** (Google, Apache 2.0) — cantos
+  retos, coerente com a ortogonalidade da marca. Escolhida em 29/set, sem biblioteca premium
+  por ora (ver `aurora-open-questions`).
+- Tamanhos usuais: 16px em botão e link, 20px em lista e campo, 24px em card.
+- Cor: a do texto em volta; laranja só quando o ícone marca estado ou ação (ex.: hover de
+  célula de benefício).
+- O menu de celular usa duas linhas (`drag_handle`), não três.
+- Os caminhos prontos e a licença estão no kit da `aurora-web`.
 
 ## Estrutura de case
 
@@ -158,9 +179,19 @@ categoria + ciclo + contador de dias) de forma consistente.
 
 ## Textura
 
-Não usar hachura diagonal — removida do sistema. Textura oficial em desenvolvimento
-(gerador modular ASCII). Até a substituição estar pronta, peças podem ser produzidas
-sem textura.
+- **Textura oficial: ASCII**, gerada no **aurora. ASCII Studio**
+  (https://aurora-ascii-studio.vercel.app), oficializada em 30/set a partir do uso na LP.
+- **Receitas:** cada uso tem uma receita (gerador, seed, parâmetros), reproduzível no Studio.
+  Não desenhar textura à mão nem com outro gerador.
+- **Cor:** glifos no cinza do modo; o laranja aparece só em picos raros — nunca como mancha
+  ou campo, e conta no teto de 10%.
+- **Opacidade:** até 20% atrás de título e texto; cerca de 30% atrás do wordmark, sem
+  máscara ou sombra em volta da marca.
+- **Contato com a estrutura:** pode encostar em trilhos, réguas e bordas. Só texto e
+  números precisam de respiro.
+- **Na web:** regras de desempenho e posições em `../aurora-web/SKILL.md`.
+- **Fora dela:** peças de formato fixo exportam do Studio (PNG/SVG/texto).
+- **Hachura diagonal:** não usar — removida do sistema.
 
 > **Conflito conhecido com o canônico.** O PDF ainda mostra hachura diagonal em uso — case
 > Atria (p. 39), peças de comunicação (p. 42) e hero do site (p. 43). A remoção foi

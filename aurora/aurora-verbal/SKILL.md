@@ -106,6 +106,31 @@ concurso de criatividade, sem gamificação infantil.
 **Case** — mostra hipótese inicial, o que foi construído, o que foi testado, o que mudou,
 evidência produzida e decisão tomada. Nunca apenas o resultado final.
 
+## Interface
+
+Texto de tela (site, login, formulário, lista). Veio das telas do app construídas em 30/set;
+exemplos completos em `../aurora-web/SKILL.md`.
+
+- **Título de tela** — frase curta com ponto final, dizendo o que a pessoa faz ali:
+  "Encontre sua oportunidade.", "Acesse o portal de inovação.", "Crie sua conta na Aurora.".
+- **Botão** — verbo + o que acontece, sem ambiguidade: "Enviar candidatura", "Entrar e
+  continuar", "Acessar plataforma", "Ver todas as chamadas". Nunca "OK", "Enviar" sozinho,
+  "Clique aqui".
+- **Mensagem de erro** — uma frase: o que falta e como resolver, sem "Erro:" e sem culpar:
+  "Informe o nome da startup.", "Confira o e-mail: falta algo no endereço.", "As senhas não
+  são iguais.", "A senha precisa de pelo menos 10 caracteres."
+- **Estado vazio** — nomeia a situação e oferece o próximo passo: "Nenhuma chamada
+  encontrada." + "Ver todas as chamadas".
+- **Confirmação** — o estado numa frase curta ("Candidatura enviada.") e, logo abaixo, o que
+  acontece depois, como processo: triagem → avaliação → retorno pela plataforma. Não
+  promete resultado.
+- **Contexto de retorno** — quando o fluxo leva a pessoa para outro lugar, dizer para onde
+  ela volta: "Depois de entrar, você volta para a candidatura da Chamada Mercado 2026."
+- **Nada técnico na tela** — rota (`/login?next=…`), código de erro ou nome de campo do banco
+  não aparecem para quem usa. Usar rótulos para pessoas ("← Voltar para a chamada").
+- **Recuperação de senha** — não revelar se o e-mail tem conta: "Se houver uma conta com …,
+  o link chega em alguns minutos."
+
 ## Teste de qualidade
 
 Antes de aprovar qualquer texto:

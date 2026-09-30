@@ -1,0 +1,126 @@
+/* Telas do app (login, candidatura, chamadas). Revisão de 30/set a partir das referências
+   Firecrawl, Axiom, Amesa, Mecha e Heron: hierarquia em três níveis — ponto de entrada,
+   uma zona de tarefa única, uma ação evidente no fim. */
+
+/* ------------------------------------------------------------------ caixa de campo */
+.au-caixa {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border: var(--line) solid var(--color-border-default);
+  background: var(--color-bg-canvas);
+  transition: border-color 150ms linear, box-shadow 150ms linear;
+}
+.au-caixa:hover { border-color: var(--color-text-tertiary); }
+.au-caixa:focus-within {
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 var(--line) var(--color-focus);
+}
+.au-caixa[data-erro] { border-color: var(--color-accent-signal); }
+.au-caixa--area { align-items: stretch; }
+.au-caixa__valor {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 0;
+  padding: 12px 16px;
+}
+.au-caixa--area .au-caixa__valor { resize: vertical; min-height: 140px; }
+.au-caixa__valor::placeholder { color: var(--color-text-tertiary); opacity: 1; }
+.au-caixa__valor:focus-visible { outline: none; }
+
+/* --------------------------------------------------------------- opções em botão */
+.au-opcao { cursor: pointer; }
+.au-opcao { display: block; }
+.au-opcao > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 16px;
+  text-align: center;
+  border: var(--line) solid var(--color-border-default);
+  color: var(--color-text-secondary);
+  transition: background-color 150ms linear, color 150ms linear, border-color 150ms linear;
+}
+.au-opcao:hover > span { color: var(--color-text-primary); border-color: var(--color-text-tertiary); }
+.au-opcao input:checked + span {
+  background: var(--color-accent-signal);
+  border-color: var(--color-accent-signal);
+  color: var(--color-text-on-accent);
+}
+.au-opcao input:focus-visible + span { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* ------------------------------------------------------------- área de anexo */
+.au-soltar {
+  border: var(--line) dashed var(--color-border-default);
+  transition: border-color 150ms linear, background-color 150ms linear;
+}
+.au-soltar[data-sobre] { border-color: var(--color-focus); background: var(--color-bg-canvas); }
+.au-soltar[data-erro] { border-color: var(--color-accent-signal); }
+.au-soltar__alvo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px 16px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-align: center;
+}
+.au-soltar input:focus-visible + .au-soltar__alvo { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+
+/* ----------------------------------------------------------------- seletor */
+.au-seletor {
+  position: relative;
+  min-height: 56px;
+  color: var(--color-text-tertiary);
+  transition: color 150ms linear, background-color 150ms linear;
+}
+.au-seletor:hover { color: var(--color-text-secondary); }
+.au-seletor[data-ativo] { color: var(--color-text-primary); background: var(--color-bg-surface); }
+.au-seletor::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent-signal);
+  transform: scaleX(0);
+  transition: transform 480ms var(--ease-aurora);
+}
+.au-seletor[data-ativo]::after { transform: scaleX(1); }
+.au-seletor:focus-visible { outline-offset: -2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-caixa, .au-opcao > span, .au-soltar, .au-seletor { transition: none; }
+  .au-seletor::after { transition: none; }
+}
+
+/* ------------------------------------------------------ lista de chamadas */
+.au-filtro {
+  min-height: 40px;
+  padding: 0 16px;
+  border: var(--line) solid var(--color-border-default);
+  color: var(--color-text-secondary);
+  transition: background-color 150ms linear, color 150ms linear, border-color 150ms linear;
+}
+.au-filtro:hover { color: var(--color-text-primary); border-color: var(--color-text-tertiary); }
+.au-filtro--on,
+.au-filtro--on:hover {
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  color: var(--color-bg-canvas);
+}
+/* Bloco de chamada: a borda acende e a seta anda no hover e no foco. */
+.au-chamada { text-decoration: none; transition: border-color 150ms linear; }
+.au-chamada:hover,
+.au-chamada:focus-visible { border-color: var(--color-border-default); }
+.au-chamada__seta { transition: transform 480ms var(--ease-aurora); }
+.au-chamada:hover .au-chamada__seta,
+.au-chamada:focus-visible .au-chamada__seta { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) {
+  .au-filtro, .au-chamada, .au-chamada__seta { transition: none; }
+}

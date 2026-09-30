@@ -1,0 +1,33 @@
+@import "./styles/tokens.css";
+@import "./styles/layout.css";
+@import "./styles/components.css";
+@import "./styles/motion.css";
+@import "./styles/app.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background: var(--color-bg-canvas);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-regular);
+    background: var(--color-bg-canvas);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-accent-signal);
+    color: var(--color-text-on-accent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}

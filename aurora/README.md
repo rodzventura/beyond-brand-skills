@@ -9,6 +9,7 @@ Estas skills traduzem o sistema de marca em regras consultáveis pelo Claude Cod
 |---|---|
 | [`aurora-brand`](aurora-brand/SKILL.md) | Sistema visual — grid, tipografia, cor, logotipo, cards de status, estrutura de case. Regras verificáveis, operacionais. |
 | [`aurora-verbal`](aurora-verbal/SKILL.md) | Identidade verbal — tom, léxico, formatos de copy e o teste de qualidade de texto. |
+| [`aurora-web`](aurora-web/SKILL.md) | Web e interface — estrutura de página, telas de tarefa (formulário, login, lista), movimento, textura na web, acessibilidade, entrega — e um **kit de componentes** React + Tailwind em `aurora-web/kit/`. |
 | [`aurora-open-questions`](aurora-open-questions/SKILL.md) | Pendências de julgamento e divergências com o canônico. Referência, não skill operacional. |
 
 ## Comando
@@ -21,7 +22,7 @@ Estas skills traduzem o sistema de marca em regras consultáveis pelo Claude Cod
 
 | Agent | O que faz |
 |---|---|
-| [`aurora-revisor`](agents/aurora-revisor.md) | Audita uma peça já gerada (PNG) contra os cinco pontos mais sensíveis do sistema — peso de fonte, fundo, estouro de título, wordmark e uso da mono — e fecha com veredito. Só lê, não corrige. |
+| [`aurora-revisor`](agents/aurora-revisor.md) | Audita uma peça já gerada (PNG) ou capturas de uma página web contra os pontos mais sensíveis do sistema — peso de fonte, fundo, estouro de título, wordmark, uso da mono e, na web, contraste de apoio e hierarquia de tela — e fecha com veredito. Só lê, não corrige. |
 
 Agents aceitam `name`, `description`, `model`, `tools`, `color` e `effort` — **não aceitam
 `skills:`**. Como o `aurora-revisor` roda com `tools: Read`, ele também não pode chamar a
@@ -57,6 +58,7 @@ git clone git@github.com:rodzventura/beyond-brand-skills.git ~/beyond-brand-skil
 ln -s ~/beyond-brand-skills/aurora/aurora-brand          ~/.claude/skills/aurora-brand
 ln -s ~/beyond-brand-skills/aurora/aurora-verbal         ~/.claude/skills/aurora-verbal
 ln -s ~/beyond-brand-skills/aurora/aurora-open-questions ~/.claude/skills/aurora-open-questions
+ln -s ~/beyond-brand-skills/aurora/aurora-web            ~/.claude/skills/aurora-web
 
 mkdir -p ~/.claude/commands
 ln -s ~/beyond-brand-skills/aurora/commands/aurora-peca.md ~/.claude/commands/aurora-peca.md
@@ -80,5 +82,4 @@ Hoje estão pendentes:
 - `tipografia.escala` — escala tipográfica
 - `cor.fundo.gatilho_de_escolha` — o par claro/escuro já está fixado; falta o critério
   de quando usar cada um
-- `textura.oficial` — o gerador modular ASCII ainda está em desenvolvimento
 - `fotografia.tratamento` / `fotografia.criterio_de_uso`

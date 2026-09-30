@@ -1,0 +1,127 @@
+/* Estrutura da página: container, trilhos (linhas verticais), réguas e marcadores.
+   Referências: VoidZero (bordas por seção que se alinham numa linha contínua) e
+   Firecrawl (fios de 1px em vez de caixas). Cantos retos; marcador quadrado, como
+   no marcador de status da Aurora. */
+
+:root {
+  --header-height: 64px;
+  --line: 1px;
+  --tick: 5px;
+  /* Trilhos no meio da margem (padrão): o texto fica na grade (x = 80) e a linha
+     tem respiro, sem encostar no conteúdo. Alternativa: <html data-rails="content">,
+     trilho na borda do conteúdo (exige padding interno nas células). */
+  --rail-inset: calc(var(--grid-margin) / 2);
+}
+@media (min-width: 768px) {
+  :root { --header-height: 96px; }
+}
+:root[data-rails="content"] {
+  --rail-inset: var(--grid-margin);
+}
+
+/* Container: conteúdo até 1280 com a margem do breakpoint. */
+.au-container {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--grid-margin));
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+}
+
+/* Trilhos verticais. Cada seção desenha os seus; empilhadas, viram uma linha só. */
+.au-rails::before,
+.au-rails::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--line);
+  background: var(--color-border-subtle);
+  pointer-events: none;
+  z-index: 0;
+}
+.au-rails::before { left: var(--rail-inset); }
+.au-rails::after { right: var(--rail-inset); }
+/* No mobile a margem é de 20px: sem espaço para trilho. Ficam só as réguas. */
+@media (max-width: 767px) {
+  .au-rails::before,
+  .au-rails::after { display: none; }
+  :root { --rail-inset: 0px; }
+  .au-rule--ticks::before,
+  .au-rule--ticks::after { display: none; }
+}
+
+/* Régua horizontal entre os trilhos, com marcador quadrado nos cruzamentos. */
+.au-rule {
+  position: relative;
+  height: var(--line);
+  margin-inline: calc(var(--rail-inset) - var(--grid-margin));
+  background: var(--color-border-subtle);
+}
+/* Sangra até as bordas da tela sem mudar a caixa: os marcadores continuam nos trilhos. */
+.au-rule--bleed {
+  border-image: conic-gradient(var(--color-border-subtle) 0 0) fill 0 / / 0 100vmax;
+}
+.au-rule--ticks::before,
+.au-rule--ticks::after {
+  content: "";
+  position: absolute;
+  top: calc((var(--tick) - var(--line)) / -2);
+  width: var(--tick);
+  height: var(--tick);
+  background: var(--color-border-default);
+}
+.au-rule--ticks::before { left: calc((var(--tick) - var(--line)) / -2); }
+.au-rule--ticks::after { right: calc((var(--tick) - var(--line)) / -2); }
+
+/* Grade de colunas do breakpoint atual. */
+.au-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+}
+
+/* Sobreposição da grade (tecla G em desenvolvimento, ou botão na /_design). */
+.au-grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+.au-grid-overlay .au-container,
+.au-grid-overlay .au-grid { height: 100%; }
+.au-grid-overlay .au-grid > span {
+  background: color-mix(in srgb, var(--aurora-orange-500) 12%, transparent);
+  box-shadow: inset 1px 0 0 color-mix(in srgb, var(--aurora-orange-500) 45%, transparent),
+    inset -1px 0 0 color-mix(in srgb, var(--aurora-orange-500) 45%, transparent);
+}
+
+/* Cabeçalho fixo: herda o modo da seção que está passando por baixo dele. */
+.au-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--header-height);
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  transition: background-color 240ms ease, color 240ms ease;
+}
+.au-header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: var(--line);
+  background: var(--color-border-subtle);
+}
+.au-header-offset { padding-top: var(--header-height); }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-header { transition: none; }
+}
+
+/* Bloco que vai de trilho a trilho (ex.: faixa texturizada, faixa de KPIs), mantendo o
+   conteúdo alinhado à grade. No mobile, sem trilhos, vai de borda a borda da tela. */
+.au-entre-trilhos {
+  margin-inline: calc(var(--rail-inset) - var(--grid-margin));
+  padding-inline: calc(var(--grid-margin) - var(--rail-inset));
+}

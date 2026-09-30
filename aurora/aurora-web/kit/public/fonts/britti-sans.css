@@ -1,0 +1,78 @@
+/* Britti Sans — webfont licenciada (YouWorkForThem). Os cabeçalhos abaixo são exigência da licença: manter inalterados e visíveis.
+   Os arquivos .woff/.woff2 NÃO vão para o repositório — ver ENTREGA.md. */
+
+/*
+Font: 		Britti Sans Light
+Style: 		
+URL: 		https://youworkforthem.com/font/T12190/britti-sans
+Foundry: 	Nois
+Foundry: 	https://youworkforthem.com/designer/1360/nois
+Copyright:	
+Version: 	18
+Created:	April 24, 2026
+License: 	https://www.youworkforthem.com/font-license 
+License: 	The WebFont(s) listed in this document must follow the YouWorkForThem
+			WebFont license rules. All other parties are strictly restricted 
+			from using the WebFonts(s) listed without a purchased license. 
+			All details above must always remain unaltered and visible in your CSS.
+*/
+
+@font-face {
+	font-family: 'Britti Sans';
+	src: url('britti-sans-light.woff2') format('woff2'),
+	     url('britti-sans-light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+/*
+Font: 		Britti Sans Regular
+Style: 		
+URL: 		https://youworkforthem.com/font/T12190/britti-sans
+Foundry: 	Nois
+Foundry: 	https://youworkforthem.com/designer/1360/nois
+Copyright:	
+Version: 	18
+Created:	April 24, 2026
+License: 	https://www.youworkforthem.com/font-license 
+License: 	The WebFont(s) listed in this document must follow the YouWorkForThem
+			WebFont license rules. All other parties are strictly restricted 
+			from using the WebFonts(s) listed without a purchased license. 
+			All details above must always remain unaltered and visible in your CSS.
+*/
+
+@font-face {
+	font-family: 'Britti Sans';
+	src: url('britti-sans-regular.woff2') format('woff2'),
+	     url('britti-sans-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/*
+Font: 		Britti Sans Medium
+Style: 		
+URL: 		https://youworkforthem.com/font/T12190/britti-sans
+Foundry: 	Nois
+Foundry: 	https://youworkforthem.com/designer/1360/nois
+Copyright:	
+Version: 	18
+Created:	April 24, 2026
+License: 	https://www.youworkforthem.com/font-license 
+License: 	The WebFont(s) listed in this document must follow the YouWorkForThem
+			WebFont license rules. All other parties are strictly restricted 
+			from using the WebFonts(s) listed without a purchased license. 
+			All details above must always remain unaltered and visible in your CSS.
+*/
+
+@font-face {
+	font-family: 'Britti Sans';
+	src: url('britti-sans-medium.woff2') format('woff2'),
+	     url('britti-sans-medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+

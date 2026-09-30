@@ -1,0 +1,99 @@
+/* Movimento reutilizável da Aurora (web): rolagem suave, entrada na rolagem, título palavra a
+   palavra, réguas que se desenham, texto que se preenche, troca de painel e sanfona.
+   Separado de sections.css em 30/set para ir ao kit da skill aurora-web. */
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+/* Âncoras param abaixo do cabeçalho fixo. */
+[id] { scroll-margin-top: var(--header-height); }
+
+:root { --ease-aurora: cubic-bezier(0.625, 0.05, 0, 1); }
+
+/* ------------------------------------------ entrada na rolagem (Fase 4, ver useScrollReveal)
+   Sobe 24px e aparece; itens de um bloco entram em sequência. */
+:root[data-reveal="on"] [data-reveal-self],
+:root[data-reveal="on"] [data-reveal-item] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+:root[data-reveal="on"] [data-revealed][data-reveal-self],
+:root[data-reveal="on"] [data-revealed] [data-reveal-item] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 700ms linear, transform 1000ms var(--ease-aurora);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms);
+}
+
+/* Título palavra a palavra: o título fica parado e cada palavra sobe de trás da própria
+   máscara, 40ms depois da anterior. A folga embaixo da máscara protege descendentes (g, p, ç). */
+.au-words .au-w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0 0.04em 0.14em 0;
+  margin: 0 -0.04em -0.14em 0;
+}
+.au-words .au-w > span { display: inline-block; }
+:root[data-reveal="on"] [data-reveal-item].au-words { opacity: 1; transform: none; }
+:root[data-reveal="on"] [data-reveal] .au-words .au-w > span { transform: translateY(110%); }
+:root[data-reveal="on"] [data-revealed] .au-words .au-w > span {
+  transform: none;
+  transition: transform 1000ms var(--ease-aurora);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms + var(--w, 0) * 40ms);
+}
+
+/* Réguas se desenham da esquerda para a direita (marcadores dos trilhos vão junto). */
+:root[data-reveal="on"] .au-rule[data-reveal-self] {
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+:root[data-reveal="on"] .au-rule[data-revealed][data-reveal-self] {
+  transform: none;
+  transition: transform 1400ms var(--ease-aurora);
+}
+
+/* Texto que se preenche com a rolagem: cada palavra passa do terciário à cor do texto numa
+   fatia da travessia do parágrafo pela tela (de 10% a 45% da passagem). */
+@supports (animation-timeline: view()) {
+  :root[data-reveal="on"] .au-fill { display: block; view-timeline: --au-fill block; }
+  :root[data-reveal="on"] .au-fill > span > span {
+    animation: au-fill linear both;
+    animation-timeline: --au-fill;
+    animation-range: cover calc(10% + 35% * var(--w) / var(--n)) cover calc(14% + 35% * var(--w) / var(--n));
+  }
+  @keyframes au-fill {
+    from { color: var(--color-text-tertiary); opacity: 0.35; }
+  }
+}
+
+/* Marcador de status: troca de estado suave (o piscar do corrente fica em components.css). */
+.au-marker > span { transition: background-color 240ms linear, box-shadow 240ms linear; }
+@media (prefers-reduced-motion: reduce) {
+  .au-marker > span { transition: none; }
+}
+
+/* Troca de conteúdo em painéis (jornada · opção C). */
+.au-fade-in { animation: au-fade-in 480ms var(--ease-aurora) both; }
+@keyframes au-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .au-fade-in { animation: none; }
+}
+
+/* Sanfona (jornada · C4): abre com grid-template-rows, sem medir altura em JS. */
+.au-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 480ms var(--ease-aurora);
+}
+.au-accordion > div { overflow: hidden; min-height: 0; }
+.au-accordion[data-open="true"] { grid-template-rows: 1fr; }
+.au-accordion[data-open="false"] > div { visibility: hidden; transition: visibility 0s linear 480ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-accordion { transition: none; }
+}
