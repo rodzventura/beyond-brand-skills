@@ -23,6 +23,7 @@ Os tokens (`src/design/aurora-tokens.json`) vêm sempre de `../../aurora-brand/`
 | `src/components/layout/` | `Section` (modo claro/escuro), `Container`, `Rule`, `FaixaTexturada`, `GridOverlay` (tecla G em dev) |
 | `src/components/brand/` | `Wordmark` (arquivos oficiais), `Logo` (SVG inline com `currentColor`) |
 | `src/components/app/` | `AppShell`, `Campo` (`CampoTexto`, `CampoArea`, `Opcoes`, `CampoArquivo`), `Seletor`, `StatusChamada`, `TituloNaLargura` |
+| `src/loader.ts` | Loading da página em quadrados laranja. Chamar `iniciarLoader()` depois do primeiro render; a cortina (`#au-loader`) e a trava de 4s estão em `config/index.html` |
 | `src/hooks/` | `useDissolve`, `useScrollReveal`, `useInView`, `useMediaQuery`, `useThemeUnder` |
 | `src/texture/` | `AsciiTexture` (canvas + atlas), `campo.ts` + `texture.worker.ts`, `receitas.ts`, núcleo do Studio (gerado) |
 | `scripts/` | `build-tokens.mjs`, `sync-tokens.mjs`, `build-pixel-mask.mjs`, `sync-ascii-kernel.mjs`, `build-aprovacao.mjs` |

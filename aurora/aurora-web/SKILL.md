@@ -122,6 +122,7 @@ Tudo respeita "reduzir movimento": sem animação, com o estado final à mostra.
 | Número em destaque | Conta de 0 ao valor quando entra na tela (1.6s); o valor final reserva a largura |
 | Régua | Desenha da esquerda para a direita |
 | Marcador de status | O quadrado corrente pisca (liga e desliga, sem fade, 1.1s) |
+| Carregar a página | Cortina laranja já na primeira pintura (`#au-loader` no `index.html`) que se desfaz em quadrados, em ordem aleatória: 40 colunas no desktop, 6 no tablet, 4 no celular; 0.15s parado, 0.4s de sequência, 0.1s por quadrado. Ao clicar num link interno, o caminho inverso em 0.25s antes de trocar de página. Âncora, link externo e nova aba ficam de fora. Desenhado num canvas, com trava de 4s se o JS falhar (`src/loader.ts`; referência legencymedia.com, 30/set) |
 | Curva padrão | `cubic-bezier(0.625, 0.05, 0, 1)` |
 
 ## Textura ASCII

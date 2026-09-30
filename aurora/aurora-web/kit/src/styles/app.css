@@ -2,6 +2,19 @@
    Firecrawl, Axiom, Amesa, Mecha e Heron: hierarquia em três níveis — ponto de entrada,
    uma zona de tarefa única, uma ação evidente no fim. */
 
+/* Escopo das telas do app: o que index.css aplica no body da LP, aqui vale só dentro de .au-app
+   (a tela pode ser levada para o app Aurora sem mudar as outras telas de lá). */
+.au-app {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.au-app :focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 /* ------------------------------------------------------------------ caixa de campo */
 .au-caixa {
   display: flex;

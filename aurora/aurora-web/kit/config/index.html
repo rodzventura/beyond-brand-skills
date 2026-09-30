@@ -28,8 +28,25 @@
     <link rel="preload" href="/fonts/britti-sans-regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/britti-sans-medium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/fonts/britti-sans.css" />
+    <!-- Loading em quadrados (30/set, referência: legencymedia.com). A cortina laranja já está
+         na primeira pintura, antes do JS; src/loader.ts a desfaz em quadrados. Sem JS ou com
+         movimento reduzido, ela não aparece. -->
+    <style>
+      #au-loader { position: fixed; inset: 0; z-index: 9999; background: #FA6E30; pointer-events: none; }
+      #au-loader canvas { display: block; width: 100%; height: 100%; }
+      @media (prefers-reduced-motion: reduce) { #au-loader { display: none; } }
+    </style>
+    <noscript><style>#au-loader { display: none; }</style></noscript>
   </head>
   <body>
+    <div id="au-loader" aria-hidden="true"></div>
+    <script>
+      // Trava: se o app não subir (erro de JS), a cortina não fica fechada — some em 4s.
+      setTimeout(function () {
+        var l = document.getElementById("au-loader");
+        if (l && !l.querySelector("canvas")) l.style.display = "none";
+      }, 4000);
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

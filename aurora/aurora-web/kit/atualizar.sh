@@ -55,6 +55,7 @@ mkdir -p "$KIT/src/hooks" "$KIT/src/texture" "$KIT/src/lib" "$KIT/src/assets/bra
 cp "$ORIGEM"/src/hooks/*.ts "$KIT/src/hooks/"
 cp "$ORIGEM"/src/texture/* "$KIT/src/texture/"
 copiar src/lib/cn.ts
+copiar src/loader.ts  # loading em quadrados; o HTML da cortina está em config/index.html
 cp "$ORIGEM"/src/assets/pixel-mask*.svg "$KIT/src/assets/"
 cp "$ORIGEM"/src/assets/brand/*.svg "$KIT/src/assets/brand/"
 

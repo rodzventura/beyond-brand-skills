@@ -9,7 +9,7 @@ import { Container } from "@/components/layout/Container";
 export function AppShell({ topo, children }: { topo?: ReactNode; children: ReactNode }) {
   return (
     // div e não <section>: dentro de uma section o <header> deixa de ser o cabeçalho da página.
-    <div data-theme="dark" className="min-h-screen bg-au-bg-canvas text-au-text-primary">
+    <div data-theme="dark" className="au-app min-h-screen bg-au-bg-canvas text-au-text-primary">
       <PularConteudo />
       <header className="border-b border-au-border-subtle">
         <Container className="flex h-[var(--header-height)] items-center justify-between gap-6">
