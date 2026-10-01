@@ -1,7 +1,7 @@
 // Loading da página em quadrados laranja (30/set; referência: legencymedia.com).
 //
 // Entrada: a cortina laranja (#au-loader, já pintada pelo index.html) vira uma grade de quadrados
-// que somem um a um, em ordem aleatória — 40 colunas no desktop, 6 no tablet, 4 no celular.
+// que somem um a um, em ordem aleatória — 24 colunas no desktop, 16 no tablet, 6 e 4 no celular.
 // Saída: ao clicar num link interno, os quadrados voltam em ordem aleatória, cobrem a tela e só
 // então a próxima página carrega; o loading dela continua o gesto.
 // Desenhado num canvas (um retângulo por quadrado), não em mil <div>s.
@@ -15,7 +15,9 @@ const FADE = 100; // ms de cada quadrado
 const ESPERA_MAX = 1200; // ms: não segura a página mais que isso esperando as fontes
 
 const reduzMovimento = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const colunas = (w: number) => (w <= 479 ? 4 : w <= 767 ? 6 : 40);
+// 01/out: quadrados maiores que a referência (40 colunas): 24 no desktop = 2 por coluna da grade
+// de 12; 16 entre 768 e 1279; 6 e 4 no celular.
+const colunas = (w: number) => (w <= 479 ? 4 : w <= 767 ? 6 : w <= 1279 ? 16 : 24);
 
 // Bordas de cada coluna e linha em pixels do aparelho, inteiros: quadrados vizinhos se encostam
 // sem fresta (em frações de pixel o antialias desenhava uma grade de linhas no laranja cheio).
