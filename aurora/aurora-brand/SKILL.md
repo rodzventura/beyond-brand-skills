@@ -30,6 +30,9 @@ Esta skill contém as regras verificáveis do sistema visual.
   vertical — cruzamento ou encontro em T (ex.: trilho que termina na régua do rodapé). Linha
   sozinha não leva marcador, nem no meio nem na ponta (decisão de 01/out). No escuro, o
   marcador é cinza (neutral/500).
+- **Marcador de cruzamento ≠ marcador de estado.** O quadrado de 12px de estado (fluxo,
+  marco de linha do tempo, ponto de gráfico, card de status) pode ficar sobre uma linha
+  sozinha — ele marca uma posição, não um encontro de linhas.
 
 ### Web
 
@@ -71,7 +74,12 @@ licença (decisão de 01/out):
   com as **mesmas regras de peso**: Light, Regular e Medium; nunca Semibold nem Bold.
 - A JetBrains Mono não muda: já é livre (OFL) e está no Google Fonts.
 - **Nunca embutir nem enviar os arquivos da Britti Sans** para fazer a peça funcionar fora
-  de uma máquina licenciada — é exatamente o caso que a Geist resolve.
+  de uma máquina licenciada — é exatamente o caso que a Geist resolve. Exceção: o
+  subconjunto que o próprio PDF embute ao ser exportado numa máquina licenciada (decisão de
+  01/out: deck e relatório em PDF saem em Britti). A permissão de embutir está pendente de
+  confirmação com a YWFT — ver `aurora-open-questions`.
+- **Saída editável** (PPTX, Google Slides, Keynote) sai **sempre em Geist** — o arquivo
+  circula e é aberto em máquinas sem a Britti.
 - Pilha de fontes: `"Britti Sans", "Geist", sans-serif`. Em HTML, carregar a Geist do Google
   Fonts e, antes de exportar, conferir qual das duas carregou de fato
   (`document.fonts.check`).
@@ -107,8 +115,8 @@ Base 16px, passos de 4px, tamanhos próprios para desktop e mobile. Valores comp
 | Body | LG 20·18 · MD 16 · SM 14 · Long (Light) 18·17 · Caption 12 · Button/MD 16 (Medium) |
 | Mono | Label LG 16·14 · MD 14·12 · SM 12·11 (caixa alta, +4%) · Data 16·14 |
 
-Um Display por tela ou peça. A escala vale para web e interface; **peças de formato fixo**
-(social, slides, impresso) ainda não têm escala própria — sinalizar como pendência.
+Um Display por tela ou peça. A escala vale para web e interface. **Slides** têm escala
+própria (ver Apresentação). **Social e impresso** ainda não têm — sinalizar como pendência.
 
 ## Cor
 
@@ -126,6 +134,10 @@ Um Display por tela ou peça. A escala vale para web e interface; **peças de fo
   texto branco em Medium, contando nos 10% (uma célula de 3 × 1 módulos no 3:4 dá ~6%). É a
   forma de dar presença ao laranja sem virar território; peça muito monocromática pede uma
   célula com função, não mais rótulos laranja.
+- **Célula com texto usa o laranja 600 `#D05E2E`** (01/out): branco sobre ele dá 3.95:1 —
+  passa no AA para texto grande (KPI, título) — contra 2.86:1 do laranja oficial. O laranja
+  oficial `#FA6E30` segue em todo o resto: marcador, ponto de gráfico, contador, rótulo,
+  segmento de atenção. Os rótulos pequenos dentro da célula ficam abaixo do AA (concessão).
 
 ### Cores por função
 
@@ -139,7 +151,8 @@ laranja estão em `cor.primitivas` — as cores oficiais são âncoras fixas den
 
 - Alvo: WCAG AA. `text/primary`, `text/secondary` e `text/tertiary` passam nos dois modos.
 - **Texto sobre laranja é branco, sempre em peso Medium** (estilo Button/MD ou Label mono).
-  Concessão (28/set): 2.9:1, abaixo do AA — o peso compensa parte da leitura. Preto daria 6.6:1.
+  Concessão (28/set): 2.9:1 no laranja oficial, abaixo do AA — o peso compensa parte da
+  leitura. Preto daria 6.6:1. Em célula de peça e slide, o fundo é o laranja 600 (3.95:1).
 - O cinza oficial `#97979D` só funciona como texto no escuro. No claro, texto de apoio usa
   `text/secondary` (neutral/700).
 - **Concessão (28/set):** o laranja oficial é usado como texto também no claro, onde dá
@@ -223,6 +236,69 @@ Fechado no relatório do case Atria (01/out), para o 3:4:
   do trilho, alinhadas à primeira linha do parágrafo.
 - Valores em `aurora-tokens.json` → `case`.
 
+## Apresentação
+
+Fechado no deck executivo do case Atria (01/out). Comando: `/aurora-apresentacao`. Modelo
+de referência (gerador das três saídas): `../modelos/deck-atria/`. Valores em
+`aurora-tokens.json` → `apresentacao`.
+
+**Formato e grid.** 16:9 em 1920 × 1080; módulo do grid 6 × 8 de 320 × 135; margem 48.
+
+**Sequência:** capa → (abertura de capítulo → páginas) × capítulos → contracapa. Capa,
+aberturas e contracapa em fundo escuro; páginas em fundo claro. Um capítulo agrupa uma ou
+mais páginas; o deck não vai direto do sumário para o conteúdo.
+
+- **Abertura de capítulo:** trilho em x = 1280 e régua em y = 675. Acima da régua, o número
+  do capítulo em Britti Medium 240px e a textura na célula à direita do trilho. Abaixo, o
+  nome do capítulo (64px Medium) e uma frase do que vem (24px), e, na célula da direita, a
+  lista "Neste capítulo" com o número de cada página, em mono.
+- **Header de página:** número do capítulo em Medium 88px, centralizado no módulo de
+  320 × 135; título da página em Label mono 18px à direita do trilho; wordmark com 28px.
+- **Footer:** régua em y = 945; Label mono 16px; contador de página (conta todos os slides,
+  capa incluída) em laranja.
+
+**Escala de slide** (px no canvas de 1920; no PPTX, pt = px ÷ 2): número de capítulo 240 ·
+display 160 · número do header 88 · título 64 (longo em Regular) · KPI 64 · subtítulo 40 ·
+H3 32 · H4 28 · lead 24 · **corpo 20 (mínimo)** · rótulo 18 · **rótulo 16 (mínimo)**.
+
+**Tipos de slide:** capa, abertura de capítulo, KPIs em células, gráfico com célula de
+evidência, lista, linha do tempo, decisão, contracapa. Variar o tipo entre páginas
+seguidas.
+
+**Conteúdo:**
+
+- Uma ideia por slide. A evidência principal fica no slide, nunca só na nota.
+- Toda página tem nota do apresentador; a nota não contradiz o slide.
+- O slide de decisão traz o pedido explícito — escopo e valor. Se o valor não estiver no
+  material, a nota diz que ele falta; não inventar número.
+- A contracapa retoma a decisão, com wordmark e "Um programa Beyond Co." depois dele.
+- Case fictício avisa na capa e na contracapa.
+- Título sem palavra órfã: dimensionar a caixa para a quebra cair numa frase inteira.
+
+**Laranja no slide:** no máximo uma célula (laranja 600) por slide. Fora dela, só sinais
+pontuais em laranja oficial: marcador corrente, ponto final do gráfico, contador, segmento
+de atenção. **Série de gráfico em preto**, com o laranja só no ponto final — no PPTX, uma
+segunda série de um ponto, para o gráfico seguir nativo e editável.
+
+**Três saídas, do mesmo layout:**
+
+| Saída | Fonte | Uso |
+|---|---|---|
+| PDF | Britti Sans (máquina licenciada) | Referência visual e envio |
+| PPTX | Geist + JetBrains Mono (precisam estar instaladas em quem abre — avisar na entrega) | Edição |
+| HTML | Pilha `"Britti Sans", "Geist"` (Geist do Google Fonts) | Apresentar no navegador e importar no Claude Design |
+
+**HTML de apresentação** — arquivo único, sem build; cada slide é uma
+`<section class="slide">` de 1920 × 1080 escalada para a janela; notas em
+`<template class="notes">`; setas, clique e F (tela cheia). Micro animações da `aurora-web`,
+ao entrar em cada slide: título palavra a palavra por trás de máscara, blocos subindo 24px
+em sequência, réguas e trilhos se desenhando, números contando até o valor (1.6s), barras
+crescendo, célula laranja abrindo da esquerda, linha do gráfico se desenhando, marcador
+corrente piscando (1.1s, sem fade). Header e footer não animam. Textura viva com o núcleo do
+Studio (kit da `aurora-web`) num Web Worker, desenho por atlas de glifos, 12 quadros por
+segundo, só no slide visível. Cortina laranja em quadrados só ao abrir o deck. Tudo para com
+"reduzir movimento". Curva padrão `cubic-bezier(0.625, 0.05, 0, 1)`.
+
 ## Textura
 
 - **Textura oficial: ASCII**, gerada no **aurora. ASCII Studio**
@@ -236,7 +312,8 @@ Fechado no relatório do case Atria (01/out), para o 3:4:
 - **Contato com a estrutura:** pode encostar em trilhos, réguas e bordas. Só texto e
   números precisam de respiro.
 - **Confinamento (01/out):** em peça de formato fixo, a textura ocupa **uma única célula**
-  delimitada por trilho e régua — nunca a peça inteira. A exceção é a faixa do rodapé, onde
+  delimitada por trilho e régua — nunca a peça inteira. **Célula** é a área fechada por
+  trilhos e réguas, não um módulo do grid: pode somar vários módulos. A exceção é a faixa do rodapé, onde
   pode ficar atrás do texto do rodapé, dentro do teto de opacidade. Numa célula sem texto,
   a textura entra com opacidade cheia.
 - **Modo sinal:** os picos laranja têm de ser raros. Se o laranja virar mancha na ponta de um

@@ -12,11 +12,12 @@ Estas skills traduzem o sistema de marca em regras consultáveis pelo Claude Cod
 | [`aurora-web`](aurora-web/SKILL.md) | Web e interface — estrutura de página, telas de tarefa (formulário, login, lista), movimento, textura na web, acessibilidade, entrega — e um **kit de componentes** React + Tailwind em `aurora-web/kit/`. |
 | [`aurora-open-questions`](aurora-open-questions/SKILL.md) | Pendências de julgamento e divergências com o canônico. Referência, não skill operacional. |
 
-## Comando
+## Comandos
 
 | Comando | O que faz |
 |---|---|
 | [`/aurora-peca`](commands/aurora-peca.md) | Cria ou revisa uma peça visual, **em Opus 5**, carregando `aurora-brand` e `aurora-verbal` e fechando com um checklist de conformidade. |
+| [`/aurora-apresentacao`](commands/aurora-apresentacao.md) | Monta uma apresentação 16:9 — roteiro antes do desenho, aberturas de capítulo, notas do apresentador — em três saídas do mesmo layout: PDF (Britti), PPTX editável (Geist) e HTML com micro animações. Usa o modelo em [`modelos/deck-atria/`](modelos/deck-atria/). |
 
 ## Subagent
 
@@ -62,6 +63,7 @@ ln -s ~/beyond-brand-skills/aurora/aurora-web            ~/.claude/skills/aurora
 
 mkdir -p ~/.claude/commands
 ln -s ~/beyond-brand-skills/aurora/commands/aurora-peca.md ~/.claude/commands/aurora-peca.md
+ln -s ~/beyond-brand-skills/aurora/commands/aurora-apresentacao.md ~/.claude/commands/aurora-apresentacao.md
 ```
 
 O symlink tem que apontar para a pasta da skill em si: `~/.claude/skills/` só reconhece
@@ -79,7 +81,7 @@ contradizem de propósito.
 
 Hoje estão pendentes:
 
-- `tipografia.escala` — escala tipográfica
+- escala tipográfica de **social e impresso** (web e slide já fechadas)
 - `cor.fundo.gatilho_de_escolha` — o par claro/escuro já está fixado; falta o critério
   de quando usar cada um
 - `fotografia.tratamento` / `fotografia.criterio_de_uso`

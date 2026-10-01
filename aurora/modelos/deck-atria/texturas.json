@@ -1,0 +1,140 @@
+[
+  {
+    "name": "deck-capa",
+    "gen": "campo.dissolucao",
+    "seed": 20261004,
+    "w": 320,
+    "h": 945,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "ang": 90,
+      "soft": 1,
+      "grain": 14,
+      "mix": 0.85
+    }
+  },
+  {
+    "name": "deck-contra",
+    "gen": "campo.dissolucao",
+    "seed": 20261005,
+    "w": 320,
+    "h": 945,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "ang": 270,
+      "soft": 1,
+      "grain": 14,
+      "mix": 0.85
+    }
+  },
+  {
+    "name": "deck-cap1",
+    "gen": "campo.ruido",
+    "seed": 20261011,
+    "w": 640,
+    "h": 675,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "scale": 2.6,
+      "oct": 4,
+      "gain": 0.5,
+      "warp": 0.9,
+      "cont": 0.35
+    }
+  },
+  {
+    "name": "deck-cap2",
+    "gen": "campo.ruido",
+    "seed": 20261012,
+    "w": 640,
+    "h": 675,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "scale": 2.6,
+      "oct": 4,
+      "gain": 0.5,
+      "warp": 0.9,
+      "cont": 0.35
+    }
+  },
+  {
+    "name": "deck-cap3",
+    "gen": "campo.ruido",
+    "seed": 20261013,
+    "w": 640,
+    "h": 675,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "scale": 2.6,
+      "oct": 4,
+      "gain": 0.5,
+      "warp": 0.9,
+      "cont": 0.35
+    }
+  },
+  {
+    "name": "deck-cap4",
+    "gen": "campo.ruido",
+    "seed": 20261014,
+    "w": 640,
+    "h": 675,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "scale": 2.6,
+      "oct": 4,
+      "gain": 0.5,
+      "warp": 0.9,
+      "cont": 0.35
+    }
+  },
+  {
+    "name": "deck-cap5",
+    "gen": "campo.ruido",
+    "seed": 20261015,
+    "w": 640,
+    "h": 675,
+    "bg": "#101011",
+    "fg": "#97979D",
+    "dim2": "#313133",
+    "colorMode": "sinal",
+    "accentAt": 0.97,
+    "charPx": 12,
+    "params": {
+      "scale": 2.6,
+      "oct": 4,
+      "gain": 0.5,
+      "warp": 0.9,
+      "cont": 0.35
+    }
+  }
+]

@@ -17,6 +17,8 @@ A fonte canônica é `~/beyond-brand-skills/aurora/canonico/aurora-identidade-vi
 Consulte-a quando a skill não cobrir o caso. A única exceção à precedência do canônico é
 a hachura, registrada em `aurora-open-questions`.
 
+Se o pedido for uma **apresentação** (deck, slides), use `/aurora-apresentacao`.
+
 Antes de renderizar, confira se a Britti Sans está instalada nesta máquina. Se não estiver,
 use a Geist do Google Fonts como substituta (regra em `aurora-brand` → Fonte substituta).
 

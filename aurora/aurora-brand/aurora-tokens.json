@@ -3,7 +3,7 @@
   "meta": {
     "marca": "Aurora",
     "org": "Beyond Co.",
-    "versao": "0.6.1",
+    "versao": "0.7.0",
     "status": "parcial",
     "canonico": "../canonico/aurora-identidade-visual.pdf",
     "figma": {
@@ -59,6 +59,12 @@
       "onde": "só onde uma linha horizontal encontra uma vertical — cruzamento ou T",
       "linha_sozinha": "sem marcador",
       "_origem": "Decisão do time em 01/out, no relatório do case Atria."
+    },
+    "marcador_de_estado": {
+      "forma": "quadrado",
+      "tamanho_px": 12,
+      "pode_ficar_em_linha_sozinha": true,
+      "_nota": "Fluxo, marco, ponto de gráfico, card de status. Não confundir com o marcador de cruzamento (5px)."
     }
   },
   "tipografia": {
@@ -73,7 +79,9 @@
         "pesos": "os mesmos da Britti Sans: Light, Regular, Medium",
         "pilha": "\"Britti Sans\", \"Geist\", sans-serif",
         "declarar_na_entrega": true,
-        "_origem": "Decisão do time em 01/out, para não depender da licença por máquina da Britti Sans."
+        "_origem": "Decisão do time em 01/out, para não depender da licença por máquina da Britti Sans.",
+        "saida_editavel": "PPTX, Google Slides e Keynote sempre em Geist",
+        "pdf_em_britti": "deck e relatório em PDF saem em Britti, embutida pelo próprio PDF numa máquina licenciada (01/out); permissão pendente de confirmação com a YWFT"
       },
       "usos": [
         "titulo",
@@ -393,8 +401,13 @@
         "quando": "marca a evidência principal ou uma decisão",
         "maximo_por_pagina": 1,
         "texto": "branco, Medium",
-        "_nota": "Conta no teto de 10%. Uma célula de 3×1 módulos no 3:4 dá ~6%.",
-        "_origem": "Decisão do time em 01/out, no relatório do case Atria."
+        "_nota": "Conta no teto de 10%. Uma célula de 3×1 módulos no 3:4 dá ~6%; no 16:9, 2×2 módulos (640×270) dá ~8,3%. Fora da célula, o laranja oficial #FA6E30.",
+        "_origem": "Decisão do time em 01/out, no relatório do case Atria.",
+        "fundo_com_texto": {
+          "token": "orange/600",
+          "hex": "#D05E2E",
+          "contraste_branco": 3.95
+        }
       }
     },
     "fundo": {
@@ -696,7 +709,8 @@
     "confinamento": {
       "regra": "em peça de formato fixo, ocupa uma única célula delimitada por trilho e régua — nunca a peça inteira",
       "excecao": "faixa do rodapé (pode ficar atrás do texto do rodapé, dentro do teto de opacidade)",
-      "_origem": "Decisão do time em 01/out, no relatório do case Atria."
+      "_origem": "Decisão do time em 01/out, no relatório do case Atria.",
+      "celula": "área fechada por trilhos e réguas — pode somar vários módulos"
     },
     "modo_sinal": "picos raros; se o laranja virar mancha na ponta de um gradiente, ajustar a receita (suavidade/ruído)"
   },
@@ -732,5 +746,111 @@
       "none": 0,
       "_nota": "Aurora é ortogonal: cantos retos."
     }
+  },
+  "apresentacao": {
+    "formato": "16:9",
+    "canvas_px": [
+      1920,
+      1080
+    ],
+    "modulo_px": [
+      320,
+      135
+    ],
+    "margem_px": 48,
+    "sequencia": [
+      "capa",
+      "abertura_de_capitulo",
+      "paginas",
+      "contracapa"
+    ],
+    "fundo": {
+      "capa": "escuro",
+      "abertura_de_capitulo": "escuro",
+      "paginas": "claro",
+      "contracapa": "escuro"
+    },
+    "abertura_de_capitulo": {
+      "trilho_x": 1280,
+      "regua_y": 675,
+      "numero_px": 240,
+      "nome_px": 64,
+      "frase_px": 24,
+      "lista": "\"Neste capítulo\", mono, na célula abaixo da régua à direita",
+      "textura": "célula acima da régua, à direita do trilho"
+    },
+    "header": {
+      "numero_px": 88,
+      "numero_posicao": "centralizado no módulo 320×135",
+      "titulo": "Label mono 18px",
+      "logo_altura_px": 28
+    },
+    "footer": {
+      "regua_y": 945,
+      "texto": "Label mono 16px",
+      "contador": "conta todos os slides, capa incluída; laranja"
+    },
+    "escala_px": {
+      "numero_capitulo": 240,
+      "display": 160,
+      "numero_header": 88,
+      "titulo": 64,
+      "kpi": 64,
+      "subtitulo": 40,
+      "h3": 32,
+      "h4": 28,
+      "lead": 24,
+      "corpo": 20,
+      "rotulo": 18,
+      "rotulo_sm": 16
+    },
+    "minimos_px": {
+      "corpo": 20,
+      "rotulo": 16
+    },
+    "pptx_pt": "px ÷ 2 (canvas de 13,333 in = 1920 px)",
+    "tipos": [
+      "capa",
+      "abertura_de_capitulo",
+      "kpis_em_celulas",
+      "grafico_com_celula",
+      "lista",
+      "linha_do_tempo",
+      "decisao",
+      "contracapa"
+    ],
+    "laranja": {
+      "celulas_por_slide": 1,
+      "grafico": "série em preto; laranja só no ponto final"
+    },
+    "saidas": {
+      "pdf": {
+        "fonte": "Britti Sans",
+        "papel": "referência visual e envio"
+      },
+      "pptx": {
+        "fonte": "Geist + JetBrains Mono",
+        "papel": "edição",
+        "aviso": "as fontes precisam estar instaladas em quem abre"
+      },
+      "html": {
+        "fonte": "\"Britti Sans\", \"Geist\" (Google Fonts)",
+        "papel": "apresentar no navegador; importar no Claude Design",
+        "estrutura": "arquivo único; <section class=\"slide\"> 1920×1080; notas em <template class=\"notes\">"
+      }
+    },
+    "movimento_html": {
+      "curva": "cubic-bezier(0.625, 0.05, 0, 1)",
+      "titulo": "palavra a palavra, 40ms",
+      "blocos": "sobem 24px em sequência",
+      "reguas": "desenham",
+      "numeros": "contam até o valor, 1.6s",
+      "marcador_corrente": "pisca 1.1s sem fade",
+      "textura": "viva, Web Worker, 12 qps, só no slide visível",
+      "cortina": "laranja em quadrados, só ao abrir o deck",
+      "reduzir_movimento": "tudo para"
+    },
+    "modelo": "../modelos/deck-atria/",
+    "_origem": "Deck executivo do case Atria, 01/out."
   }
 }

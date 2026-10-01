@@ -43,7 +43,12 @@ Verifique, nesta ordem, e reporte cada item como OK ou FALHA com a razão:
 - **Estrutura** — textura ocupando mais de uma célula do grid (fora a faixa do rodapé) é
   FALHA; marcador quadrado de 5px em linha que não encontra outra (horizontal sozinha) é
   FALHA, assim como cruzamento de horizontal com vertical sem marcador. Mais de uma célula
-  laranja por página, ou célula laranja sem função de evidência ou decisão, é FALHA.
+  laranja por página, ou célula laranja sem função de evidência ou decisão, é FALHA. Célula
+  laranja com texto deve usar o laranja 600 `#D05E2E`. O quadrado de estado de 12px (fluxo,
+  marco, ponto de gráfico) sobre linha sozinha **não** é falha.
+- **Apresentação** (16:9) — corpo abaixo de 20px ou rótulo abaixo de 16px no canvas de 1920
+  é FALHA; série de gráfico inteira em laranja é FALHA; capítulo sem abertura, ou evidência
+  principal só na nota do apresentador, é FALHA. Regras em `aurora-brand` → Apresentação.
 
 **Se for página web ou tela de app**, some estes dois:
 
@@ -52,7 +57,7 @@ Verifique, nesta ordem, e reporte cada item como OK ou FALHA com a razão:
 7. **Hierarquia de tela de tarefa** — formulário, login ou lista têm um ponto de entrada, uma
    zona de tarefa única e uma ação evidente no fim? Caixas de mesmo peso competindo é FALHA.
 
-**Não são falha** (decisões registradas): peça em **Geist** no lugar da Britti Sans,
+**Não são falha** (decisões registradas): slide em Geist no PPTX editável; peça em **Geist** no lugar da Britti Sans,
 quando quem gerou não tem a fonte licenciada (as regras de peso valem igual); textura ASCII encostando em trilho, régua ou borda
 (só texto e números precisam de respiro); laranja como texto em rótulo no fundo claro e
 branco sobre o botão laranja (concessões do time).
