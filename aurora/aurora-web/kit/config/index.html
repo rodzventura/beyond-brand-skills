@@ -29,8 +29,8 @@
     <link rel="preload" href="/fonts/britti-sans-medium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/fonts/britti-sans.css" />
     <!-- Loading em quadrados (30/set, referência: legencymedia.com). A cortina laranja já está
-         na primeira pintura, antes do JS; src/loader.ts a desfaz em quadrados. Sem JS ou com
-         movimento reduzido, ela não aparece. -->
+         na primeira pintura, antes do JS; src/loader.ts a desfaz em quadrados. Só na página
+         inicial e depois do login (01/out). Sem JS ou com movimento reduzido, não aparece. -->
     <style>
       #au-loader { position: fixed; inset: 0; z-index: 9999; background: #FA6E30; pointer-events: none; }
       #au-loader canvas { display: block; width: 100%; height: 100%; }
@@ -41,6 +41,14 @@
   <body>
     <div id="au-loader" aria-hidden="true"></div>
     <script>
+      // A cortina só aparece na página inicial (/) e na primeira carga depois de um login externo
+      // (ex.: Google, marca "aurora-pos-login"). Nas outras telas, some antes da primeira pintura.
+      (function () {
+        var l = document.getElementById("au-loader");
+        var pos = false;
+        try { pos = sessionStorage.getItem("aurora-pos-login") === "1"; } catch (e) {}
+        if (l && location.pathname !== "/" && !pos) l.style.display = "none";
+      })();
       // Trava: se o app não subir (erro de JS), a cortina não fica fechada — some em 4s.
       setTimeout(function () {
         var l = document.getElementById("au-loader");

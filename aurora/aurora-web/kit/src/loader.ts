@@ -2,15 +2,15 @@
 //
 // Entrada: a cortina laranja (#au-loader, já pintada pelo index.html) vira uma grade de quadrados
 // que somem um a um, em ordem aleatória — 24 colunas no desktop, 16 no tablet, 6 e 4 no celular.
-// Saída: ao clicar num link interno, os quadrados voltam em ordem aleatória, cobrem a tela e só
-// então a próxima página carrega; o loading dela continua o gesto.
+// Depois do login: os quadrados voltam em ordem aleatória, cobrem a tela, a página troca por
+// baixo e eles se desfazem de novo (transicaoDePagina). Só nesses dois momentos (01/out).
 // Desenhado num canvas (um retângulo por quadrado), não em mil <div>s.
 // Com movimento reduzido, nada disso roda: o CSS do index.html esconde a cortina.
 
 const COR = "#FA6E30"; // --color-accent-signal (fixo: roda antes do CSS da página carregar)
 const ATRASO = 150; // ms parado antes de começar a desfazer
 const SEQUENCIA_ENTRADA = 400; // ms entre o primeiro e o último quadrado que some
-const SEQUENCIA_SAIDA = 250; // ms entre o primeiro e o último quadrado que aparece
+const SEQUENCIA_SAIDA = 250; // ms entre o primeiro e o último quadrado que aparece (pós-login)
 const FADE = 100; // ms de cada quadrado
 const ESPERA_MAX = 1200; // ms: não segura a página mais que isso esperando as fontes
 
@@ -97,41 +97,40 @@ async function entrada(el: HTMLElement, fator = 1) {
   el.style.display = "none";
 }
 
-function linkInterno(e: MouseEvent): HTMLAnchorElement | null {
-  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return null;
-  const a = (e.target as Element | null)?.closest?.("a");
-  if (!a || !a.href || a.target === "_blank" || a.hasAttribute("download") || a.hasAttribute("data-sem-transicao")) return null;
-  const destino = new URL(a.href, location.href);
-  if (destino.origin !== location.origin) return null;
-  // Âncora na mesma página (#jornada) não troca de página: segue a rolagem normal.
-  if (destino.pathname === location.pathname && destino.search === location.search && destino.hash) return null;
-  if (a.getAttribute("href")?.startsWith("#")) return null;
-  return a;
+/** Marca, antes de um redirecionamento externo de login (ex.: Google), que a próxima carga é
+ *  "depois do login": a página de destino abre com o efeito. */
+export const MARCA_POS_LOGIN = "aurora-pos-login";
+
+/**
+ * Transição depois do login (01/out): os quadrados fecham a tela, `navegar` troca de página
+ * (navegação do React, sem recarregar) e os quadrados abrem já na página de destino.
+ * Com movimento reduzido ou sem a cortina, só navega.
+ */
+export async function transicaoDePagina(navegar: () => void) {
+  const el = document.getElementById("au-loader");
+  if (!el || reduzMovimento()) {
+    navegar();
+    return;
+  }
+  el.style.display = "block";
+  el.style.background = "transparent";
+  const g = montarGrade(el);
+  if (!g) {
+    el.style.display = "none";
+    navegar();
+    return;
+  }
+  await animar(g, 0, 1, 0, SEQUENCIA_SAIDA);
+  navegar();
+  // Dois quadros: o React pinta a página nova por baixo antes de a cortina abrir.
+  await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  await entrada(el);
 }
 
-function saida(el: HTMLElement) {
-  document.addEventListener("click", (e) => {
-    const a = linkInterno(e);
-    if (!a) return;
-    e.preventDefault();
-    const destino = a.href;
-    el.style.display = "block";
-    el.style.background = "transparent";
-    const g = montarGrade(el);
-    if (!g) {
-      location.href = destino;
-      return;
-    }
-    animar(g, 0, 1, 0, SEQUENCIA_SAIDA).then(() => {
-      location.href = destino;
-    });
-  });
-  // Voltar pelo histórico com a página em cache: a cortina não pode ficar fechada.
-  window.addEventListener("pageshow", (e) => {
-    if (e.persisted) el.style.display = "none";
-  });
-}
-
+/**
+ * Efeito só em dois momentos (01/out): ao abrir a página inicial (/) e depois do login.
+ * Nas outras telas a cortina já é escondida pelo index.html antes da primeira pintura.
+ */
 export function iniciarLoader() {
   const el = document.getElementById("au-loader");
   if (!el) return;
@@ -139,8 +138,19 @@ export function iniciarLoader() {
     el.remove();
     return;
   }
-  entrada(el);
-  saida(el);
+  let posLogin = false;
+  try {
+    posLogin = sessionStorage.getItem(MARCA_POS_LOGIN) === "1";
+    sessionStorage.removeItem(MARCA_POS_LOGIN);
+  } catch {
+    /* sem sessionStorage: segue sem o efeito pós-login */
+  }
+  if (location.pathname === "/" || posLogin) entrada(el);
+  else el.style.display = "none";
+  // Voltar pelo histórico com a página em cache: a cortina não pode ficar fechada.
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) el.style.display = "none";
+  });
   // Só em desenvolvimento: repetir a entrada mais devagar para conferir (ex.: 8x).
   if (import.meta.env.DEV)
     Object.assign(window, {

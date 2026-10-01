@@ -122,7 +122,7 @@ Tudo respeita "reduzir movimento": sem animação, com o estado final à mostra.
 | Número em destaque | Conta de 0 ao valor quando entra na tela (1.6s); o valor final reserva a largura |
 | Régua | Desenha da esquerda para a direita |
 | Marcador de status | O quadrado corrente pisca (liga e desliga, sem fade, 1.1s) |
-| Carregar a página | Cortina laranja já na primeira pintura (`#au-loader` no `index.html`) que se desfaz em quadrados, em ordem aleatória: 24 colunas no desktop (2 por coluna da grade), 16 de 768 a 1279, 6 e 4 no celular; 0.15s parado, 0.4s de sequência, 0.1s por quadrado. Ao clicar num link interno, o caminho inverso em 0.25s antes de trocar de página. Âncora, link externo e nova aba ficam de fora. Desenhado num canvas, com trava de 4s se o JS falhar (`src/loader.ts`; referência legencymedia.com, 30/set) |
+| Carregar a página | Cortina laranja já na primeira pintura (`#au-loader` no `index.html`) que se desfaz em quadrados, em ordem aleatória: 24 colunas no desktop (2 por coluna da grade), 16 de 768 a 1279, 6 e 4 no celular; 0.15s parado, 0.4s de sequência, 0.1s por quadrado. Só em dois momentos (01/out): ao abrir a página inicial e depois do login (`transicaoDePagina`: fecha em 0.25s, troca a página por baixo, abre de novo). Nas outras telas a cortina some antes da primeira pintura. Exceção aprovada ao teto de 10% de laranja (ver `aurora-open-questions`). Desenhado num canvas, com trava de 4s se o JS falhar (`src/loader.ts`; referência legencymedia.com, 30/set) |
 | Curva padrão | `cubic-bezier(0.625, 0.05, 0, 1)` |
 
 ## Textura ASCII
