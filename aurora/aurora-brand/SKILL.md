@@ -280,7 +280,9 @@ pontuais em laranja oficial: marcador corrente, ponto final do gráfico, contado
 de atenção. **Série de gráfico em preto**, com o laranja só no ponto final — no PPTX, uma
 segunda série de um ponto, para o gráfico seguir nativo e editável.
 
-**Três saídas, do mesmo layout:**
+**Três saídas possíveis, do mesmo layout.** Perguntar logo no início qual delas o
+solicitante quer e gerar **só as pedidas** — cada saída a mais custa tempo e tokens sem
+necessidade (decisão de 01/out).
 
 | Saída | Fonte | Uso |
 |---|---|---|

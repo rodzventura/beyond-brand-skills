@@ -18,8 +18,12 @@ O modelo de referência é `~/beyond-brand-skills/aurora/modelos/deck-atria/`: u
 `gerar.js` que produz as três saídas. Parta dele — copie a pasta para o trabalho e troque o
 conteúdo — em vez de reescrever o gerador.
 
-Se não estiver claro, pergunte antes de começar: para quem é o deck e **que decisão** ele
-pede. Formato é sempre 16:9.
+**Antes de qualquer outra coisa, pergunte em que saída o solicitante quer a apresentação** —
+PDF, PPTX editável ou HTML animado (uma ou mais) — e gere **só as escolhidas**. Não gere as
+três por padrão: cada saída a mais é gasto de tempo e tokens.
+
+Se não estiver claro, pergunte junto: para quem é o deck e **que decisão** ele pede.
+Formato é sempre 16:9.
 
 ## Roteiro antes do desenho
 
@@ -40,11 +44,12 @@ Siga a lógica da `aurora-verbal`: hipótese → ação → evidência → decis
   Geist. O HTML usa a pilha `"Britti Sans", "Geist"`.
 - **Texturas:** uma receita do aurora. ASCII Studio por célula (capa, contracapa, uma por
   abertura), registradas em `texturas.json`.
-- Rode as três saídas e zere a lista de textos estourados que o `pdf.js` imprime.
+- Rode só as saídas pedidas. Mesmo sem PDF pedido, gere o HTML estático (`node gerar.js
+  static`) para conferir estouro de texto e passar pelo revisor; ele não vai para a entrega.
 
 ## Ao entregar
 
-Passe o PDF (um PNG por slide) pelo `aurora-revisor`. Depois verifique, item a item, e
+Passe os slides (um PNG por slide, do PDF ou do HTML estático) pelo `aurora-revisor`. Depois verifique, item a item, e
 relate:
 
 - [ ] 16:9 em 1920 × 1080, grid de 320 × 135, margem de 48px
@@ -61,7 +66,8 @@ relate:
 - [ ] Título sem palavra órfã; nenhum texto estourando a caixa
 - [ ] Evidência principal no slide; nota do apresentador em toda página, sem contradizer o
       slide; decisão com pedido explícito
-- [ ] HTML: animações só ao entrar no slide, header e footer parados, textura viva só no
+- [ ] Só as saídas pedidas foram geradas
+- [ ] HTML (se pedido): animações só ao entrar no slide, header e footer parados, textura viva só no
       slide visível, tudo parado com "reduzir movimento"
 - [ ] Texto passa no teste da `aurora-verbal` — se a Beyond poderia dizer a mesma frase,
       reescreva

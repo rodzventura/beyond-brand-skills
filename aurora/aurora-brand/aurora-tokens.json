@@ -3,7 +3,7 @@
   "meta": {
     "marca": "Aurora",
     "org": "Beyond Co.",
-    "versao": "0.7.0",
+    "versao": "0.7.1",
     "status": "parcial",
     "canonico": "../canonico/aurora-identidade-visual.pdf",
     "figma": {
@@ -837,7 +837,8 @@
         "fonte": "\"Britti Sans\", \"Geist\" (Google Fonts)",
         "papel": "apresentar no navegador; importar no Claude Design",
         "estrutura": "arquivo único; <section class=\"slide\"> 1920×1080; notas em <template class=\"notes\">"
-      }
+      },
+      "_regra": "perguntar no início qual saída o solicitante quer e gerar só as pedidas (01/out)"
     },
     "movimento_html": {
       "curva": "cubic-bezier(0.625, 0.05, 0, 1)",
