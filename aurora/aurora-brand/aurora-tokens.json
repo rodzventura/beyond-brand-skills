@@ -3,7 +3,7 @@
   "meta": {
     "marca": "Aurora",
     "org": "Beyond Co.",
-    "versao": "0.6.0",
+    "versao": "0.6.1",
     "status": "parcial",
     "canonico": "../canonico/aurora-identidade-visual.pdf",
     "figma": {
@@ -65,6 +65,16 @@
     "geral": {
       "familia": "Britti Sans",
       "fonte": "https://www.youworkforthem.com/font/T12190/britti-sans",
+      "substituta": {
+        "familia": "Geist",
+        "fonte": "https://fonts.google.com/specimen/Geist",
+        "licenca": "SIL OFL 1.1",
+        "quando": "quem gera a peça não tem a Britti Sans licenciada instalada (outra máquina, agente na API, servidor)",
+        "pesos": "os mesmos da Britti Sans: Light, Regular, Medium",
+        "pilha": "\"Britti Sans\", \"Geist\", sans-serif",
+        "declarar_na_entrega": true,
+        "_origem": "Decisão do time em 01/out, para não depender da licença por máquina da Britti Sans."
+      },
       "usos": [
         "titulo",
         "subtitulo",

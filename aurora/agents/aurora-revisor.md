@@ -27,8 +27,9 @@ Depois leia o PNG da peça.
 
 Verifique, nesta ordem, e reporte cada item como OK ou FALHA com a razão:
 
-1. **Peso de fonte** — algum texto em Britti Sans está em Semibold ou Bold? Os pesos válidos
-   são Light, Regular e Medium.
+1. **Peso de fonte** — algum texto em Britti Sans (ou na substituta Geist) está em Semibold ou
+   Bold? Os pesos válidos são Light, Regular e Medium. Uma terceira família sem serifa, que
+   não seja nenhuma das duas, é FALHA.
 2. **Fundo** — o fundo dominante é `#101011` ou `#EDEDED`? O laranja ultrapassa ~10% da
    área ou aparece como campo em vez de sinal?
 3. **Título** — o texto principal quebra ou estoura a área reservada a ele?
@@ -51,7 +52,8 @@ Verifique, nesta ordem, e reporte cada item como OK ou FALHA com a razão:
 7. **Hierarquia de tela de tarefa** — formulário, login ou lista têm um ponto de entrada, uma
    zona de tarefa única e uma ação evidente no fim? Caixas de mesmo peso competindo é FALHA.
 
-**Não são falha** (decisões registradas): textura ASCII encostando em trilho, régua ou borda
+**Não são falha** (decisões registradas): peça em **Geist** no lugar da Britti Sans,
+quando quem gerou não tem a fonte licenciada (as regras de peso valem igual); textura ASCII encostando em trilho, régua ou borda
 (só texto e números precisam de respiro); laranja como texto em rótulo no fundo claro e
 branco sobre o botão laranja (concessões do time).
 

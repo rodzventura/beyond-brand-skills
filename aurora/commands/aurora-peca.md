@@ -17,6 +17,9 @@ A fonte canônica é `~/beyond-brand-skills/aurora/canonico/aurora-identidade-vi
 Consulte-a quando a skill não cobrir o caso. A única exceção à precedência do canônico é
 a hachura, registrada em `aurora-open-questions`.
 
+Antes de renderizar, confira se a Britti Sans está instalada nesta máquina. Se não estiver,
+use a Geist do Google Fonts como substituta (regra em `aurora-brand` → Fonte substituta).
+
 Se o formato não vier nos argumentos, pergunte antes de começar: 1:1, 4:5, 3:4, 16:9 ou
 9:16 são os únicos válidos.
 
@@ -28,6 +31,8 @@ Verifique explicitamente, item a item, e relate o resultado:
 - [ ] Grid de 6 × 8 aplicado
 - [ ] Britti Sans só em Regular, Medium ou Light — **nunca Semibold nem Bold**; Light apenas em
       parágrafo extenso
+- [ ] Fonte usada declarada: Britti Sans (instalada nesta máquina) ou Geist (substituta, sem
+      Britti licenciada) — mesmas regras de peso; arquivos da Britti nunca embutidos ou enviados
 - [ ] JetBrains Mono só em legenda, tag, estado, dado, label, código, data ou navegação —
       KPI em destaque vai em Britti Sans Medium (estilos KPI/*)
 - [ ] Título curto em Medium, título longo (mais de 2 linhas) em Regular

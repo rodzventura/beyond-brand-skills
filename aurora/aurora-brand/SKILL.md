@@ -59,6 +59,29 @@ Esta skill contém as regras verificáveis do sistema visual.
 - Nunca usar JetBrains Mono para texto corrido ou título principal.
 - Nunca usar Britti Sans para tag ou marcador de status.
 
+### Fonte substituta — Geist
+
+A Britti Sans é licenciada por máquina (YouWorkForThem). Para gerar peças sem depender da
+licença (decisão de 01/out):
+
+- **Com a Britti Sans instalada** no computador de quem gera a peça, usar a Britti Sans.
+- **Sem acesso à Britti Sans licenciada** (outra máquina, agente na API, servidor), usar a
+  **Geist** (Vercel, Google Fonts, licença SIL OFL 1.1 —
+  https://fonts.google.com/specimen/Geist). Ela substitui a Britti Sans em todos os papéis,
+  com as **mesmas regras de peso**: Light, Regular e Medium; nunca Semibold nem Bold.
+- A JetBrains Mono não muda: já é livre (OFL) e está no Google Fonts.
+- **Nunca embutir nem enviar os arquivos da Britti Sans** para fazer a peça funcionar fora
+  de uma máquina licenciada — é exatamente o caso que a Geist resolve.
+- Pilha de fontes: `"Britti Sans", "Geist", sans-serif`. Em HTML, carregar a Geist do Google
+  Fonts e, antes de exportar, conferir qual das duas carregou de fato
+  (`document.fonts.check`).
+- **Declarar na entrega** qual fonte foi usada. Peça em Geist é válida para revisão e uso
+  interno; se a peça final precisar da Britti Sans, regenerar numa máquina licenciada.
+- As métricas não são iguais: a troca de fonte pode mudar quebras de linha e alturas de
+  bloco. Conferir títulos e texto denso depois de renderizar.
+- O site publicado continua na Britti Sans, com os `.woff` da licença web — ver
+  `../aurora-web/SKILL.md`.
+
 ### Pesos
 
 - A Britti Sans usa três pesos: **Medium** em títulos, **Regular** em títulos longos e texto,

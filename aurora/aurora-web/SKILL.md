@@ -31,7 +31,8 @@ qualquer página poder viver sozinha ou dentro do app.
   - nada de `rounded-*`.
 - **Britti Sans:** fora do git. A licença web cobre o site publicado, não o repositório. Os
   `.woff/.woff2` vão direto no deploy ou num CDN próprio. `britti-sans.css` mantém os
-  cabeçalhos de licença intactos.
+  cabeçalhos de licença intactos. A substituta Geist (ver `aurora-brand`) é para gerar peças e
+  protótipos sem a fonte licenciada — o site publicado usa a Britti Sans.
 - **Ícones:** Material Symbols · Sharp, peso 300, embutidos como caminhos em `icones.ts`. A
   licença Apache 2.0 acompanha o código.
 
