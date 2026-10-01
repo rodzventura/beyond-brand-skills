@@ -3,7 +3,7 @@
   "meta": {
     "marca": "Aurora",
     "org": "Beyond Co.",
-    "versao": "0.5.0",
+    "versao": "0.6.0",
     "status": "parcial",
     "canonico": "../canonico/aurora-identidade-visual.pdf",
     "figma": {
@@ -52,6 +52,13 @@
       },
       "modular_na_web": "Em momentos específicos (abertura, dados, manifesto) o modular Aurora entra como 6 colunas com a mesma margem (80) e gutter (24) do desktop: 1 coluna Aurora = 2 colunas web + 1 gutter.",
       "_nao_adotado": "Variante modular de borda a borda (células de 240px, margem 0) — avaliada no teste da LP e não adotada por ora (28/set)."
+    },
+    "marcador_de_cruzamento": {
+      "forma": "quadrado",
+      "tamanho_px": 5,
+      "onde": "só onde uma linha horizontal encontra uma vertical — cruzamento ou T",
+      "linha_sozinha": "sem marcador",
+      "_origem": "Decisão do time em 01/out, no relatório do case Atria."
     }
   },
   "tipografia": {
@@ -370,7 +377,15 @@
       ],
       "uso_como_fundo_dominante": false,
       "area_maxima_pct": 10,
-      "_origem_area_maxima": "Não consta do canônico. O PDF (p. 32) diz apenas que o laranja não entra como território visual dominante, sem fixar percentual."
+      "_origem_area_maxima": "Não consta do canônico. O PDF (p. 32) diz apenas que o laranja não entra como território visual dominante, sem fixar percentual.",
+      "celula": {
+        "permitido": true,
+        "quando": "marca a evidência principal ou uma decisão",
+        "maximo_por_pagina": 1,
+        "texto": "branco, Medium",
+        "_nota": "Conta no teto de 10%. Uma célula de 3×1 módulos no 3:4 dá ~6%.",
+        "_origem": "Decisão do time em 01/out, no relatório do case Atria."
+      }
     },
     "fundo": {
       "claro": {
@@ -607,18 +622,55 @@
   "case": {
     "sequencia": [
       "capa",
-      "paginas_numeradas"
+      "paginas_numeradas",
+      "contracapa"
     ],
-    "header": [
-      "numero_da_secao",
-      "titulo"
-    ],
-    "footer": [
-      "nome_do_produto",
-      "categoria",
-      "ciclo",
-      "contador_de_dias"
-    ]
+    "capa": {
+      "fundo": "escuro",
+      "textura": "uma célula: à direita do trilho, abaixo da régua"
+    },
+    "contracapa": {
+      "fundo": "escuro",
+      "conteudo": [
+        "wordmark grande",
+        "\"Um programa Beyond Co.\" depois do wordmark"
+      ],
+      "textura": "uma célula"
+    },
+    "header": {
+      "campos": [
+        "numero_da_secao",
+        "titulo"
+      ],
+      "numero": {
+        "familia": "Britti Sans",
+        "peso": "Medium",
+        "px": 88,
+        "posicao": "centralizado no módulo de 180×180 (3:4)"
+      },
+      "titulo": "Label/MD, mono, à direita do trilho",
+      "logo_altura_px": 23.8
+    },
+    "footer": {
+      "campos": [
+        "nome_do_produto",
+        "categoria",
+        "ciclo",
+        "contador_de_dias",
+        "contador_de_pagina"
+      ],
+      "contador_de_pagina_cor": "accent_laranja"
+    },
+    "texto_denso": {
+      "estilo": "Body/Long",
+      "peso": "Light",
+      "px": 18,
+      "entrelinha_pct": 160,
+      "medida_max_px": 560,
+      "_medida": "~75 caracteres por linha; duas colunas de 444px também servem",
+      "notas_de_margem": "mono, do outro lado do trilho"
+    },
+    "_origem": "Relatório do case Atria, Ciclo 01 (01/out). O canônico (p. 39) traz só capa e páginas numeradas."
   },
   "textura": {
     "hachura_diagonal": "removida",
@@ -630,7 +682,13 @@
     "opacidade_max_atras_de_texto": 0.2,
     "opacidade_atras_do_wordmark": 0.3,
     "pode_tocar_trilho_e_regua": true,
-    "_conflito_com_canonico": "O PDF ainda mostra hachura diagonal em uso (p. 39, 42, 43). A remoção foi decidida depois — a skill prevalece neste ponto. Ver aurora-open-questions."
+    "_conflito_com_canonico": "O PDF ainda mostra hachura diagonal em uso (p. 39, 42, 43). A remoção foi decidida depois — a skill prevalece neste ponto. Ver aurora-open-questions.",
+    "confinamento": {
+      "regra": "em peça de formato fixo, ocupa uma única célula delimitada por trilho e régua — nunca a peça inteira",
+      "excecao": "faixa do rodapé (pode ficar atrás do texto do rodapé, dentro do teto de opacidade)",
+      "_origem": "Decisão do time em 01/out, no relatório do case Atria."
+    },
+    "modo_sinal": "picos raros; se o laranja virar mancha na ponta de um gradiente, ajustar a receita (suavidade/ruído)"
   },
   "icones": {
     "familia": "Material Symbols Sharp",

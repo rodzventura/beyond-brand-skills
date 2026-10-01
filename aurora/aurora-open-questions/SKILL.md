@@ -16,7 +16,8 @@ de casos reais para enxergar o padrão.
 | Densidade de linha além do limite de 3 cards por coluna | Depende do espaço disponível — sem número fixo. |
 | Sequência de peças na grade de feed | Feito por inspeção visual, sem critério escrito. |
 | Tratamento de imagem (cor, contraste, grão) | Ainda placeholder — não decidido. |
-| Escala tipográfica de peça | A escala de web/interface está fechada (26–28/set, ver `aurora-brand` e `tipografia.escala`). Peças de formato fixo — social, slides, impresso — usam tamanhos maiores e ainda não têm escala própria. |
+| Escala tipográfica de peça | A escala de web/interface está fechada (26–28/set, ver `aurora-brand` e `tipografia.escala`). Peças de formato fixo — social, slides, impresso — usam tamanhos maiores e ainda não têm escala própria. Valores já usados no relatório do case Atria (01/out), como referência e não como regra: nome do produto na capa 144px, número do capítulo 88px, wordmark da contracapa 100px de altura. |
+| Contador de dias no rodapé do case | O canônico (p. 39) mostra "90 DIAS" fixo; a skill pede "contador de dias". No case Atria ficou a duração fixa mais o contador de página. Decidir se o rodapé acompanha a fase (ex.: "DIAS 22–63"). |
 | Entrelinha do Label/SM | O Figma usa 1.5; `aurora-tokens.json` usa 1.2. O código segue o JSON; a LP abre exceção de 1.5 no nome por extenso do rodapé (29/set). Decidir um valor e alinhar os dois. |
 | Hover do botão secundário | Dissolve para o cinza oficial do modo (`#313133` no escuro, `#97979D` no claro), direto na primitiva. Falta um token por função para esse cinza — o componente do Figma usa `border/default`. |
 | Biblioteca de ícones | Material Symbols Sharp adotada em 29/set por não haver acesso a biblioteca premium. Se vier uma premium com cantos retos e traço fino, reavaliar. |

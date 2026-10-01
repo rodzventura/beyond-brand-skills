@@ -1,7 +1,7 @@
 ---
 description: Cria ou revisa uma peça visual da marca Aurora, em Opus 5
 model: opus
-argument-hint: [formato 1:1|4:5|16:9] [o que a peça precisa comunicar]
+argument-hint: [formato 1:1|4:5|3:4|16:9|9:16] [o que a peça precisa comunicar]
 ---
 
 Crie uma peça da marca Aurora. Argumentos recebidos: $ARGUMENTS
@@ -36,6 +36,12 @@ Verifique explicitamente, item a item, e relate o resultado:
 - [ ] Laranja `#FA6E30` é sinal, não território: até 10% da área, nunca fundo dominante
 - [ ] Wordmark "aurora." minúsculo, ponto final laranja, antes de Beyond/Volund/Extreme
 - [ ] Sem hachura diagonal
+- [ ] Textura do Studio, com receita registrada, ocupando **uma única célula** delimitada por
+      trilho e régua (ou a faixa do rodapé) — nunca a peça inteira
+- [ ] Marcador quadrado de 5px só onde horizontal encontra vertical; linha sozinha sem marcador
+- [ ] Laranja em célula inteira só para evidência principal ou decisão, no máximo uma por página
+- [ ] Se for case ou relatório: capa e contracapa escuras, header e footer conforme
+      `aurora-brand` → Estrutura de case, texto denso com medida de até ~560px
 - [ ] Máximo de 3 cards por coluna, se houver cards
 - [ ] Texto passa no teste de qualidade da `aurora-verbal` — sobretudo a décima pergunta:
       se a Beyond poderia dizer a mesma frase, reescreva

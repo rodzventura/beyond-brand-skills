@@ -26,6 +26,10 @@ Esta skill contém as regras verificáveis do sistema visual.
   No 3:4 o módulo do grid 6 × 8 é quadrado (180 × 180).
 - Margem mínima: 48px em qualquer formato.
 - A posição do módulo muda entre formatos; a regra permanece (p. 36).
+- **Marcador de cruzamento:** quadrado de 5px **só** onde uma linha horizontal encontra uma
+  vertical — cruzamento ou encontro em T (ex.: trilho que termina na régua do rodapé). Linha
+  sozinha não leva marcador, nem no meio nem na ponta (decisão de 01/out). No escuro, o
+  marcador é cinza (neutral/500).
 
 ### Web
 
@@ -94,6 +98,11 @@ Um Display por tela ou peça. A escala vale para web e interface; **peças de fo
   decisão ou evidência (p. 32).
 - Máximo de 10% da área total da peça. Se uma peça ultrapassar, ela está fora do sistema —
   reduzir a área ou redistribuir. (O percentual não consta do canônico; é regra local.)
+- **Laranja em célula** (01/out): o laranja pode preencher uma célula inteira do grid quando
+  marca a **evidência principal** ou uma **decisão** — no máximo uma célula por página, com
+  texto branco em Medium, contando nos 10% (uma célula de 3 × 1 módulos no 3:4 dá ~6%). É a
+  forma de dar presença ao laranja sem virar território; peça muito monocromática pede uma
+  célula com função, não mais rótulos laranja.
 
 ### Cores por função
 
@@ -173,9 +182,23 @@ marca passa a mostrar visualmente aquilo que a Aurora faz operacionalmente.
 
 ## Estrutura de case
 
-Sequência fixa: capa → páginas numeradas.
+Sequência fixa: capa → páginas numeradas → contracapa.
 Cada página carrega header (número da seção + título) e footer (nome do produto +
 categoria + ciclo + contador de dias) de forma consistente.
+
+Fechado no relatório do case Atria (01/out), para o 3:4:
+
+- **Capa e contracapa em fundo escuro.** A textura entra numa única célula (ver Textura).
+  A contracapa traz o wordmark grande e, depois dele, "Um programa Beyond Co.".
+- **Header:** número da seção em Britti Sans Medium **88px**, centralizado no módulo de
+  180 × 180 do canto; trilho vertical em x = 180 até a régua; título da seção em Label/MD
+  mono à direita do trilho; wordmark à direita com **23,8px** de altura.
+- **Footer:** na faixa da linha 8, em Label/SM mono; o contador de página fica em laranja
+  (navegação, posição corrente).
+- **Texto denso:** Body/Long (Light 18/160%), medida de até **~560px** (~75 caracteres) —
+  ou duas colunas de 444px com o trilho entre elas. Notas de margem em mono, do outro lado
+  do trilho, alinhadas à primeira linha do parágrafo.
+- Valores em `aurora-tokens.json` → `case`.
 
 ## Textura
 
@@ -189,6 +212,12 @@ categoria + ciclo + contador de dias) de forma consistente.
   máscara ou sombra em volta da marca.
 - **Contato com a estrutura:** pode encostar em trilhos, réguas e bordas. Só texto e
   números precisam de respiro.
+- **Confinamento (01/out):** em peça de formato fixo, a textura ocupa **uma única célula**
+  delimitada por trilho e régua — nunca a peça inteira. A exceção é a faixa do rodapé, onde
+  pode ficar atrás do texto do rodapé, dentro do teto de opacidade. Numa célula sem texto,
+  a textura entra com opacidade cheia.
+- **Modo sinal:** os picos laranja têm de ser raros. Se o laranja virar mancha na ponta de um
+  gradiente, ajustar a receita (suavidade e ruído) em vez de aceitar a mancha.
 - **Na web:** regras de desempenho e posições em `../aurora-web/SKILL.md`.
 - **Fora dela:** peças de formato fixo exportam do Studio (PNG/SVG/texto).
 - **Hachura diagonal:** não usar — removida do sistema.

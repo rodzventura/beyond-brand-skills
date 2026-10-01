@@ -37,6 +37,13 @@ Verifique, nesta ordem, e reporte cada item como OK ou FALHA com a razão:
 5. **JetBrains Mono** — aparece em título ou corpo de texto longo, em vez de só na camada
    técnica (labels, código, data, status)?
 
+**Se for peça de formato fixo** (social, case, relatório), some também:
+
+- **Estrutura** — textura ocupando mais de uma célula do grid (fora a faixa do rodapé) é
+  FALHA; marcador quadrado de 5px em linha que não encontra outra (horizontal sozinha) é
+  FALHA, assim como cruzamento de horizontal com vertical sem marcador. Mais de uma célula
+  laranja por página, ou célula laranja sem função de evidência ou decisão, é FALHA.
+
 **Se for página web ou tela de app**, some estes dois:
 
 6. **Texto de apoio em painel escuro** — dica, legenda ou rótulo em `text/tertiary`
